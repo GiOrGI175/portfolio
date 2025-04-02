@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+/* css rest start */
+@import 'normalize.css';
+/* css reset end */

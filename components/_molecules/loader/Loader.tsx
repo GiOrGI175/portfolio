@@ -1,6 +1,6 @@
 'use client';
 
-import { TypingEffect } from '@/components/_atoms/TypingEffect';
+import { TypingEffect } from '@/components/_atoms/loader/TypingEffect';
 import { motion } from 'framer-motion';
 
 const Loader = () => {
@@ -8,11 +8,11 @@ const Loader = () => {
     <motion.div
       className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black'
       initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }} // Make sure opacity animates to 0
+      animate={{ opacity: 0 }}
       exit={{ opacity: 0 }}
       transition={{
         duration: 3,
-        delay: 2, // Add a delay of 5 seconds before opacity starts fading
+        delay: 2,
       }}
     >
       <div className='absolute top-0 left-0 w-full h-full z-[-1]'>
