@@ -9,25 +9,33 @@ export default function LayoutAnimation() {
   const toggleSwitch = () => setIsOn(!isOn);
 
   return (
-    <button
-      className='toggle-container'
-      style={{
-        ...container,
-        justifyContent: 'flex-' + (isOn ? 'start' : 'end'),
-      }}
-      onClick={toggleSwitch}
-    >
-      <motion.div
-        className='toggle-handle'
-        style={handle}
-        layout
-        transition={{
-          type: 'spring',
-          visualDuration: 0.2,
-          bounce: 0.2,
+    <div className='flex justify-center items-center gap-[10px]'>
+      <span className='firaCode font-normal text-[16px] leading-[41px] text-[#0E0004]'>
+        Light
+      </span>
+      <button
+        className='toggle-container !bg-black !h-[30px] !w-[50px] !flex !items-center p-[5px]'
+        style={{
+          ...container,
+          justifyContent: 'flex-' + (isOn ? 'start' : 'end'),
         }}
-      />
-    </button>
+        onClick={toggleSwitch}
+      >
+        <motion.div
+          className='toggle-handle !h-[20px] !w-[20px]'
+          style={handle}
+          layout
+          transition={{
+            type: 'spring',
+            visualDuration: 0.2,
+            bounce: 0.2,
+          }}
+        />
+      </button>
+      <span className='firaCode font-normal text-[16px] leading-[41px] text-[#0E0004]'>
+        Dark
+      </span>
+    </div>
   );
 }
 
@@ -42,7 +50,6 @@ const container = {
   borderRadius: 50,
   cursor: 'pointer',
   display: 'flex',
-  padding: 10,
 };
 
 const handle = {

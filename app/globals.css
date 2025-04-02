@@ -1,5 +1,24 @@
 @import 'tailwindcss';
 
+@tailwind utilities;
+
 /* css rest start */
 @import 'normalize.css';
 /* css reset end */
+
+@font-face {
+  font-family: 'firaCode';
+  src: local('firaCode Regular'),
+    url('/assets/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.firaCode {
+  font-family: 'firaCode';
+}
+
+.hero_gradient {
+  background-color: #0f0017;
+}
