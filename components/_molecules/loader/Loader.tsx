@@ -1,6 +1,6 @@
 'use client';
 
-import { TypingEffect } from '@/components/_atoms/loader/TypingEffect';
+import { TypingEffect } from '@/components/_atoms/loader_atoms/TypingEffect';
 import { motion } from 'framer-motion';
 
 const Loader = () => {

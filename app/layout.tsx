@@ -29,7 +29,7 @@ export default function RootLayout({
             <Loader />
           ) : (
             <>
-              <Header />
+              {/* <Header /> */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

@@ -10,7 +10,7 @@ export default function LayoutAnimation() {
 
   return (
     <div className='flex justify-center items-center gap-[10px]'>
-      <span className='firaCode font-normal text-[16px] leading-[41px] text-[#0E0004]'>
+      <span className='firaCode font-normal text-[16px] leading-[41px]  text-white'>
         Light
       </span>
       <button
@@ -32,7 +32,7 @@ export default function LayoutAnimation() {
           }}
         />
       </button>
-      <span className='firaCode font-normal text-[16px] leading-[41px] text-[#0E0004]'>
+      <span className='firaCode font-normal text-[16px] leading-[41px]  text-white'>
         Dark
       </span>
     </div>
@@ -50,6 +50,8 @@ const container = {
   borderRadius: 50,
   cursor: 'pointer',
   display: 'flex',
+  border: '1px solid', // Added "solid" to specify border style
+  borderColor: '#9911ff',
 };
 
 const handle = {
