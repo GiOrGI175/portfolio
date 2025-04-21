@@ -10,7 +10,7 @@ export default function HomePage() {
     <div className='hero_gradient w-full flex flex-col items-center'>
       <Header />
       <div className='max-w-[1440px] w-full flex flex-col items-center'>
-        <div className='max-w-[1280px] h-[600px]  w-full mb-[50px]  flex items-center border-[1px] rounded-2xl border-[#9911ff]'>
+        <div className='max-w-[1280px] h-[600px]  w-full mb-[220px]  flex items-center border-[1px] rounded-2xl border-[#9911ff]'>
           <div className=' flex flex-col gap-[20px]  pl-[50px]'>
             <p className='firaCode font-normal text-[20px] leading-[41px] text-white opacity-50'>
               FULL-STACK WEB DEVELOPER
@@ -28,15 +28,6 @@ export default function HomePage() {
               />
             </div>
           </div>
-        </div>
-        <div>
-          {' '}
-          <Image
-            src='/assets/img/binarBG.jpg'
-            width={1200}
-            height={500}
-            alt='codeing image'
-          />
         </div>
       </div>
     </div>

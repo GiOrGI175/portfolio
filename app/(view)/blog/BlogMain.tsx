@@ -1,4 +1,4 @@
-import AboutSection from '@/components/_organisms/blog_organisms/BlogSection';
+import AboutSection from '@/components/_organisms/aboutMe_organisms/BlogSection';
 
 export default function AboutMeMain() {
   return (

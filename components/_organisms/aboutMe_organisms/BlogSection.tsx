@@ -1,4 +1,5 @@
 import { StaggeredFade } from '@/components/_atoms/home_atoms/straggered_text';
+import MyStuck from '@/components/_molecules/aboutMe_molecules/MyStuck';
 import Image from 'next/image';
 import React from 'react';
 
@@ -12,7 +13,7 @@ const text = `I am a junior fullstuck web developer. I am very hardworking, I lo
 
 const AboutSection = () => {
   return (
-    <div className=' max-w-[1280px] w-full pb-[70px] flex flex-col'>
+    <div className=' max-w-[1280px] w-full pb-[70px] mt-[100px] flex flex-col'>
       <div className='px-[50px] py-[50px] flex justify-center'>
         <h2 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl '>
           About ME
@@ -46,6 +47,9 @@ const AboutSection = () => {
           </p> */}
         </div>
       </div>
+      <>
+        <MyStuck />
+      </>
     </div>
   );
 };
