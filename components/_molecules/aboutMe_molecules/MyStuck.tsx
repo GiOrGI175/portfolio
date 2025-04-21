@@ -1,7 +1,9 @@
 'use client';
 
 import BackEndStuck from '@/components/_atoms/aboutMe_atoms/BackEndStuck';
-import FrontEndStuck from '@/components/_atoms/aboutMe_atoms/frontEndStuck';
+import BasesStuck from '@/components/_atoms/aboutMe_atoms/BasesStuck';
+import FrontEndStuck from '@/components/_atoms/aboutMe_atoms/FrontEndStuck';
+import ToolsStuck from '@/components/_atoms/aboutMe_atoms/ToolsStuck';
 
 const MyStuck = () => {
   return (
@@ -14,6 +16,8 @@ const MyStuck = () => {
       <div className='w-full flex flex-col gap-[120px]'>
         <FrontEndStuck />
         <BackEndStuck />
+        <BasesStuck />
+        <ToolsStuck />
       </div>
     </div>
   );
