@@ -11,7 +11,7 @@ export const BlurIn = ({ children }: { children: React.ReactNode }) => {
       initial={{ filter: 'blur(20px)', opacity: 0 }}
       animate={isInView ? { filter: 'blur(0px)', opacity: 1 } : {}}
       transition={{ duration: 1.2 }}
-      className='max-w-[200px] firaCode font-bold text-[110px] leading-[130px] text-white'
+      className='max-w-[200px] firaCode font-bold text-[90px] leading-[130px] text-white'
     >
       {children}
     </motion.h2>
