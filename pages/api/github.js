@@ -1,24 +1,27 @@
 export default async function handler(req, res) {
   const username = 'GiOrGI175';
   const accessToken = process.env.GITHUB_TOKEN;
+  const year = req.query.year || new Date().getFullYear();
+  const from = `${year}-01-01T00:00:00Z`;
+  const to = `${year}-12-31T23:59:59Z`;
 
   const query = `
-      query {
-        user(login: "${username}") {
-          contributionsCollection {
-            contributionCalendar {
-              totalContributions
-              weeks {
-                contributionDays {
-                  contributionCount
-                  date
-                }
+    query {
+      user(login: "${username}") {
+        contributionsCollection(from: "${from}", to: "${to}") {
+          contributionCalendar {
+            totalContributions
+            weeks {
+              contributionDays {
+                contributionCount
+                date
               }
             }
           }
         }
       }
-    `;
+    }
+  `;
 
   try {
     const response = await fetch('https://api.github.com/graphql', {
