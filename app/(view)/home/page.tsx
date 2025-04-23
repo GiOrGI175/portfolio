@@ -2,6 +2,7 @@
 
 import { BlurIn } from '@/components/_atoms/home_atoms/blur_text';
 import { StaggeredFade } from '@/components/_atoms/home_atoms/straggered_text';
+import GithubContributions from '@/components/_organisms/githubContributions _organisms/GithubContributions ';
 import Header from '@/components/_organisms/header_organisms/Header';
 import Image from 'next/image';
 
@@ -30,6 +31,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      <GithubContributions />
+      aqvar
     </div>
   );
 }

@@ -42,3 +42,28 @@
   background-color: #410a3810;
   backdrop-filter: blur(35px);
 }
+
+.color-0 {
+  background-color: #ebedf0;
+}
+.color-1 {
+  background-color: #c6e48b;
+}
+.color-2 {
+  background-color: #7bc96f;
+}
+.color-3 {
+  background-color: #239a3b;
+}
+.color-4 {
+  background-color: #196127;
+}
+
+table {
+  border-collapse: collapse;
+}
+td {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ddd;
+}
