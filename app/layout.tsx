@@ -1,6 +1,6 @@
 'use client';
 
-import Header from '@/components/_organisms/header/Header';
+import Header from '@/components/_organisms/header_organisms/Header';
 import './globals.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -29,7 +29,7 @@ export default function RootLayout({
             <Loader />
           ) : (
             <>
-              <Header />
+              {/* <Header /> */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

@@ -1,0 +1,31 @@
+'use client';
+
+import { dataBases } from '@/commons/services/stucks';
+import Image from 'next/image';
+import React from 'react';
+
+const BasesStuck = () => {
+  return (
+    <div className='flex justify-between'>
+      <span className=' pl-[20px] firaCode font-normal text-[50px] leading-[41px] text-white'>
+        BACKEND:
+      </span>
+      <div className='max-w-[800px] w-full flex flex-wrap gap-[30px]'>
+        {dataBases.map((item) => (
+          <div key={`${item.icon}+${item.base}`} className='flex items-center '>
+            <div className='w-[50px] h-[50px] rounded-full flex justify-center items-center bg-[white] '>
+              <Image src={item.icon} width={30} height={30} alt='language' />
+            </div>
+            <div>
+              <span className=' pl-[20px] firaCode font-normal text-[22px] leading-[41px] text-white'>
+                {item.base}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default BasesStuck;

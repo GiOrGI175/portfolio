@@ -1,8 +1,8 @@
 'use client';
 
 import { navLinks } from '@/commons/services/Links';
-import ContactMeBtn from '@/components/_atoms/header/ContactMeBtn';
-import LayoutAnimation from '@/components/_atoms/header/DarkModeBtn';
+import ContactMeBtn from '@/components/_atoms/header_atoms/ContactMeBtn';
+import LayoutAnimation from '@/components/_atoms/header_atoms/DarkModeBtn';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -16,18 +16,18 @@ const Header = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 2 }}
-      className='w-full p-[20px] flex justify-center items-center'
+      className=' w-full p-[20px] flex justify-center items-center backdrop-blur-[20%]'
     >
-      <div className='max-w-[1280px] w-full h-[70px] rounded-[50px] px-[20px] flex justify-between items-center border-[1px] border-black '>
+      <div className='back_drop max-w-[1280px] w-full h-[70px] rounded-[50px] px-[20px] flex justify-between items-center border-[1px] border-[#9911ff] drop-shadow-lg'>
         <div className='flex justify-center items-center'>
-          <span className='firaCode font-normal text-[25px] leading-[41px] text-[#0E0004]'>
+          <span className='firaCode font-normal text-[25px] leading-[41px]  text-white'>
             &lt;
           </span>
-          <h1 className='firaCode font-normal text-[25px] leading-[41px] text-[#0E0004]'>
+          <h1 className='firaCode font-normal text-[25px] leading-[41px] text-white'>
             Giorgi Nozadze
           </h1>
 
-          <span className='firaCode font-normal text-[25px] leading-[41px] text-[#0E0004]'>
+          <span className='firaCode font-normal text-[25px] leading-[41px]  text-white'>
             &gt;
           </span>
         </div>
@@ -43,7 +43,7 @@ const Header = () => {
                   } duration-500 flex items-center `}
                 >
                   <Link href={item.link}>
-                    <span className='firaCode font-normal text-[25px] leading-[41px] text-[#0E0004]'>
+                    <span className='firaCode font-normal text-[25px] leading-[41px] text-white'>
                       {item.title}
                     </span>
                   </Link>
