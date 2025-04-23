@@ -2,6 +2,7 @@
 
 import { BlurIn } from '@/components/_atoms/home_atoms/blur_text';
 import { StaggeredFade } from '@/components/_atoms/home_atoms/straggered_text';
+
 import Header from '@/components/_organisms/header_organisms/Header';
 import Image from 'next/image';
 

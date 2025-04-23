@@ -1,0 +1,127 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import './contributions.css';
+
+type ContributionDay = {
+  date: string;
+  contributionCount: number;
+};
+
+type Week = {
+  contributionDays: ContributionDay[];
+};
+
+export default function GithubContributions() {
+  const [weeks, setWeeks] = useState<Week[]>([]);
+  const [months, setMonths] = useState<string[]>([]);
+  const [year, setYear] = useState(new Date().getFullYear().toString());
+
+  useEffect(() => {
+    const fetchContributions = async () => {
+      try {
+        const res = await fetch(`/api/github?year=${year}`);
+        const data = await res.json();
+        if (data?.weeks) {
+          setWeeks(data.weeks);
+
+          const monthNames: string[] = [];
+          let prevMonth = '';
+          data.weeks.forEach((week: Week) => {
+            const firstDay = week.contributionDays[0];
+            if (!firstDay) return;
+            const date = new Date(firstDay.date);
+            const month = date.toLocaleString('default', { month: 'short' });
+            if (month !== prevMonth) {
+              monthNames.push(month);
+              prevMonth = month;
+            } else {
+              monthNames.push('');
+            }
+          });
+          setMonths(monthNames);
+        }
+      } catch (err) {
+        console.error('Error loading contributions:', err);
+      }
+    };
+
+    fetchContributions();
+  }, [year]);
+
+  const getColorClass = (count: number) => {
+    if (count === 0) return 'color-0';
+    if (count < 2) return 'color-1';
+    if (count < 3) return 'color-2';
+    if (count < 5) return 'color-3';
+    return 'color-4';
+  };
+
+  const getTotalContributions = () => {
+    return weeks.reduce((total, week) => {
+      return (
+        total +
+        week.contributionDays.reduce(
+          (weekTotal, day) => weekTotal + day.contributionCount,
+          0
+        )
+      );
+    }, 0);
+  };
+
+  return (
+    <div className='flex flex-col '>
+      <div className='flex justify-between'>
+        <div className='text-white text-lg font-semibold mb-4 '>
+          Total Contributions in {year}: {getTotalContributions()}
+        </div>
+        <div className='bg-[#0e0910] px-[10px] w-fit mb-[20px] rounded-2xl self-end'>
+          <label htmlFor='year' className='text-white'>
+            Year:{' '}
+          </label>
+          <select
+            id='year'
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
+            className=' w-[100px] h-[50px] text-white bg-[#0e0910]'
+          >
+            <option value='2025'>2025</option>
+            <option value='2024'>2024</option>
+          </select>
+        </div>
+      </div>
+      <div className='w-[1200px] h-[250px] p-[30px] border flex justify-center items-center bg-[#0e0910] rounded-2xl'>
+        <table id='contribution-table' className='!w-full !h-full'>
+          <thead>
+            <tr className='!w-[15px] !h-[15px] border border-[green]'>
+              {months.map((month, idx) => (
+                <th key={idx} className='month-label'>
+                  {month}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[0, 1, 2, 3, 4, 5, 6].map((dayIndex) => (
+              <tr key={dayIndex}>
+                {weeks.map((week, weekIndex) => {
+                  const day = week.contributionDays[dayIndex];
+                  const count = day?.contributionCount || 0;
+                  return (
+                    <td
+                      key={weekIndex}
+                      className={`${getColorClass(
+                        count
+                      )} !w-[20px] !h-[20px] border `}
+                      title={`${count} contributions on ${day?.date}`}
+                    ></td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}

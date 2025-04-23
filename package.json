@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
     "motion": "^12.6.2",
     "next": "15.2.4",
     "normalize.css": "^8.0.1",
