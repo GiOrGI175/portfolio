@@ -8,7 +8,7 @@ const BasesStuck = () => {
   return (
     <div className='flex justify-between'>
       <span className=' pl-[20px] firaCode font-normal text-[50px] leading-[41px] text-white'>
-        BACKEND:
+        DATABASE:
       </span>
       <div className='max-w-[800px] w-full flex flex-wrap gap-[30px]'>
         {dataBases.map((item) => (
