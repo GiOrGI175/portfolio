@@ -72,25 +72,25 @@ export default function GithubContributions() {
   return (
     <div className='flex flex-col '>
       <div className='flex justify-between'>
-        <div className='text-white text-lg font-semibold mb-4 '>
+        <div className='text-white text-lg font-semibold mb-4 firaCode'>
           Total Contributions in {year}: {getTotalContributions()}
         </div>
         <div className='bg-[#0e0910] px-[10px] w-fit mb-[20px] rounded-2xl self-end'>
-          <label htmlFor='year' className='text-white'>
+          <label htmlFor='year' className='text-white firaCode'>
             Year:{' '}
           </label>
           <select
             id='year'
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className=' w-[100px] h-[50px] text-white bg-[#0e0910]'
+            className='firaCode w-[100px] h-[50px] text-white bg-[#0e0910]'
           >
             <option value='2025'>2025</option>
             <option value='2024'>2024</option>
           </select>
         </div>
       </div>
-      <div className='w-[1200px] h-[250px] p-[30px] border flex justify-center items-center bg-[#0e0910] rounded-2xl'>
+      <div className='w-[1200px] h-[250px] p-[30px] border flex justify-between  items-center flex-col bg-[#0e0910] rounded-2xl '>
         <table id='contribution-table' className='!w-full !h-full'>
           <thead>
             <tr className='!w-[15px] !h-[15px] border border-[green]'>
@@ -121,6 +121,19 @@ export default function GithubContributions() {
             ))}
           </tbody>
         </table>
+        <div className='bg-[#0e0910] px-[10px] w-fit pt-[15px] rounded-2xl self-end flex justify-between items-center gap-[5px]'>
+          <span className='firaCode text-white text-[16px] font-medium pr-[5px]'>
+            less
+          </span>
+          <div className='w-[15px] h-[15px] rounded-[3px] bg-[#1b1b1f] ' />
+          <div className='w-[15px] h-[15px] rounded-[3px] bg-[#5f2b7f] ' />
+          <div className='w-[15px] h-[15px] rounded-[3px] bg-[#8738b5] ' />
+          <div className='w-[15px] h-[15px] rounded-[3px] bg-[#a341df] ' />
+          <div className='w-[15px] h-[15px] rounded-[3px] bg-[#da57ff] ' />
+          <span className='firaCode text-white text-[16px] font-medium pl-[5px]'>
+            more
+          </span>
+        </div>
       </div>
     </div>
   );
