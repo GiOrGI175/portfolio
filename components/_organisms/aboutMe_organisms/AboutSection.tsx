@@ -13,30 +13,32 @@ const text = `I am a junior fullstuck web developer. I am very hardworking, I lo
 
 const AboutSection = () => {
   return (
-    <div className=' max-w-[1280px] w-full pb-[70px] mt-[100px] flex flex-col'>
-      <div className='px-[50px] py-[50px] flex justify-center'>
-        <h2 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl '>
-          About ME
-        </h2>
-      </div>
-      <div className='relative  w-full h-[500px] z-20  flex justify-between'>
-        <div className='w-full flex  '>
-          <div className='relative max-w-[500px] w-full h-[500px] rounded-full overflow-hidden z-20 drop-shadow-2xl'>
-            <Image
-              src='/assets/img/about-me.webp'
-              width={500}
-              height={500}
-              alt='codeing image'
-            />
+    <div className='hero_gradient w-full flex justify-center'>
+      <div className='max-w-[1440px] w-full flex flex-col items-center'>
+        <div className=' max-w-[1280px] w-full pb-[70px] mt-[100px] flex flex-col'>
+          <div className='px-[50px] py-[50px] flex justify-center'>
+            <h2 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl '>
+              About ME
+            </h2>
           </div>
-          <div className='absolute top-[20px] left-[300px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
-          <div className='absolute bottom-[20px] left-[0px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
-        </div>
-        <div className='relative max-w-[700px] w-full flex items-center'>
-          <StaggeredFade text={text} />
-          <div className='absolute top-[0px] left-[450px] z-10 w-[300px] h-[600px] rounded-l-full bg-[#340a83] blur-[200px]' />
+          <div className='relative  w-full h-[500px] z-20  flex justify-between'>
+            <div className='w-full flex  '>
+              <div className='relative max-w-[500px] w-full h-[500px] rounded-full overflow-hidden z-20 drop-shadow-2xl'>
+                <Image
+                  src='/assets/img/about-me.webp'
+                  width={500}
+                  height={500}
+                  alt='codeing image'
+                />
+              </div>
+              <div className='absolute top-[20px] left-[300px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
+              <div className='absolute bottom-[20px] left-[0px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
+            </div>
+            <div className='relative max-w-[700px] w-full flex items-center'>
+              <StaggeredFade text={text} />
+              <div className='absolute top-[0px] left-[450px] z-10 w-[300px] h-[600px] rounded-l-full bg-[#340a83] blur-[200px]' />
 
-          {/* <p>
+              {/* <p>
             მე ვარ ჯუნიორ fullstuck ვებ დეველოპერი. ვარ ძალიან შრომისმოყვარე,
             მიყვარს პრობლემების გადაჭრა და საქმის ბოლომდე მიყვანა. ჩემთავთან
             ჩემი სლოგანი არის ''თუ არ მუშაობს უნდა აამუშაო''. მიყვარს სიახლეები
@@ -45,11 +47,13 @@ const AboutSection = () => {
             თავზე მუშაობით რაც მაძლევს საშუალებას კიდევ უფრო მეტად გავითარდე
             ჩემს სფეროში და ვითვისო ახალი მიდგომა და ნებისმერი ახალი ენა
           </p> */}
+            </div>
+          </div>
+          <>
+            <MyStuck />
+          </>
         </div>
       </div>
-      <>
-        <MyStuck />
-      </>
     </div>
   );
 };
