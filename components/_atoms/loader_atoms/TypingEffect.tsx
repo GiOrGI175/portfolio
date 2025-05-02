@@ -9,7 +9,7 @@ export function TypingEffect({ text = 'Typing Effect' }: { text: string }) {
   return (
     <h2
       ref={ref}
-      className='text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]'
+      className='text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-[150px] md:leading-[4rem]'
     >
       {text.split('').map((letter, index) => (
         <motion.span
@@ -17,7 +17,7 @@ export function TypingEffect({ text = 'Typing Effect' }: { text: string }) {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.2, delay: index * 0.1 }}
-          className='text-white'
+          className='firaCode text-white'
         >
           {letter}
         </motion.span>

@@ -2,11 +2,23 @@
 
 import { BlurIn } from '@/components/_atoms/home_atoms/blur_text';
 import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
+import Loader from '@/components/_molecules/loader/Loader';
 
 import Header from '@/components/_organisms/header_organisms/Header';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function HomePage() {
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className='hero_gradient w-full flex flex-col items-center overflow-hidden'>
       <Header />
@@ -44,6 +56,7 @@ export default function HomePage() {
           </div>
         </motion.div>
       </div>
+      {loader && <Loader />}
     </div>
   );
 }

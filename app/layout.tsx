@@ -12,37 +12,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <html lang='en'>
       <body>
-        <AnimatePresence>
-          {loading ? (
-            <Loader />
-          ) : (
-            <>
-              {/* <Header /> */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 2 }}
-              >
-                {children}
-                <Footer />
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
+        {children}
+        <Footer />
       </body>
     </html>
   );
