@@ -1,4 +1,5 @@
 'use client';
+
 import { motion, useInView } from 'framer-motion';
 import * as React from 'react';
 
@@ -7,7 +8,7 @@ type TextStaggeredFadeProps = {
   className?: string;
 };
 
-export const StaggeredFade: React.FC<TextStaggeredFadeProps> = ({ text }) => {
+const StaggeredFade: React.FC<TextStaggeredFadeProps> = ({ text }) => {
   const variants = {
     hidden: { opacity: 0 },
     show: (i: number) => ({
@@ -38,3 +39,5 @@ export const StaggeredFade: React.FC<TextStaggeredFadeProps> = ({ text }) => {
     </motion.h2>
   );
 };
+
+export default StaggeredFade;

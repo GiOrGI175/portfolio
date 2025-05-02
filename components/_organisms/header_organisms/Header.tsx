@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 const Header = () => {
-  const PathName = usePathname();
+  const pathName = usePathname();
 
   return (
     <motion.header
@@ -18,7 +18,23 @@ const Header = () => {
       transition={{ duration: 2 }}
       className=' w-full p-[20px] flex justify-center items-center backdrop-blur-[20%]'
     >
-      <div className='back_drop max-w-[1280px] w-full h-[70px] rounded-[50px] px-[20px] flex justify-between items-center border-[1px] border-[#9911ff] drop-shadow-lg'>
+      <motion.div
+        className='back_drop max-w-[1280px] w-full h-[70px] rounded-[50px] px-[20px] flex justify-between items-center drop-shadow-lg'
+        initial={{
+          border: '1px solid transparent',
+          boxShadow: '0 0 0px #00000000',
+        }}
+        animate={{
+          border: '1px solid #9911ff',
+          boxShadow: '0 0 15px #9911ff',
+        }}
+        transition={{
+          duration: 1.5,
+          ease: 'easeInOut',
+          border: { duration: 1.5, ease: 'easeInOut' },
+          boxShadow: { duration: 1.5, ease: 'easeInOut' },
+        }}
+      >
         <div className='flex justify-center items-center'>
           <span className='firaCode font-normal text-[25px] leading-[41px]  text-white'>
             &lt;
@@ -34,12 +50,15 @@ const Header = () => {
         <nav className='flex justify-center '>
           <ul className='flex gap-[40px] '>
             {navLinks.map((item) => {
-              const isActive = PathName.startsWith(item.link);
+              const isActive = pathName.startsWith(item.link);
               return (
-                <li
+                <motion.li
                   key={item.title}
-                  className={`border-b-[2px] hover:border-[#D04175] ${
-                    isActive ? 'border-[#D04175]' : 'border-transparent'
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className={`border-b-[2px] hover:border-[#9911ff] ${
+                    isActive ? 'border-[#9911ff]' : 'border-transparent'
                   } duration-500 flex items-center `}
                 >
                   <Link href={item.link}>
@@ -47,7 +66,7 @@ const Header = () => {
                       {item.title}
                     </span>
                   </Link>
-                </li>
+                </motion.li>
               );
             })}
           </ul>
@@ -61,7 +80,7 @@ const Header = () => {
             <ContactMeBtn />
           </>
         </div>
-      </div>
+      </motion.div>
     </motion.header>
   );
 };

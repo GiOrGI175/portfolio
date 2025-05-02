@@ -6,6 +6,10 @@
 @import 'normalize.css';
 /* css reset end */
 
+body {
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: 'firaCode';
   src: local('firaCode Regular'),
@@ -18,20 +22,6 @@
 .firaCode {
   font-family: 'firaCode';
 }
-
-/* .hero_gradient {
-  background: #4b2e7a; 
-  background: -webkit-linear-gradient(
-    to right,
-    #1e0633,
-    #4b2e7a
-  );
-  background: linear-gradient(
-    to right,
-    #1e0633,
-    #4b2e7a
-  ); 
-} */
 
 .hero_gradient {
   background-color: #130f40;
