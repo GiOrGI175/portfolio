@@ -1,9 +1,10 @@
-import { StaggeredFade } from '@/components/_atoms/home_atoms/straggered_text';
+import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
 import MyStuck from '@/components/_molecules/aboutMe_molecules/MyStuck';
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'framer-motion';
 
-const text = `I am a junior fullstuck web developer. I am very hardworking, I love
+const text = `I am a junior fullstack  web developer. I am very hardworking, I love
             solving problems and getting things done. My slogan is "If it
             doesn't work, you have to make it work". I love innovations and
             fighting new challenges, which is what my strong character allows me
@@ -16,11 +17,16 @@ const AboutSection = () => {
     <div className='hero_gradient w-full flex justify-center'>
       <div className='max-w-[1440px] w-full flex flex-col items-center'>
         <div className=' max-w-[1280px] w-full pb-[70px] mt-[100px] flex flex-col'>
-          <div className='px-[50px] py-[50px] flex justify-center'>
+          <motion.div
+            className='px-[50px] py-[50px] flex justify-center'
+            initial={{ x: '-100wv', y: '-100wv' }}
+            animate={{ x: 0, y: 0 }}
+            transition={{ duration: 1.5 }}
+          >
             <h2 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl '>
               About ME
             </h2>
-          </div>
+          </motion.div>
           <div className='relative  w-full h-[500px] z-20  flex justify-between'>
             <div className='w-full flex  '>
               <div className='relative max-w-[500px] w-full h-[500px] rounded-full overflow-hidden z-20 drop-shadow-2xl'>
@@ -49,9 +55,7 @@ const AboutSection = () => {
           </p> */}
             </div>
           </div>
-          <>
-            <MyStuck />
-          </>
+          <MyStuck />
         </div>
       </div>
     </div>
