@@ -6,6 +6,10 @@
 @import 'normalize.css';
 /* css reset end */
 
+body {
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: 'firaCode';
   src: local('firaCode Regular'),

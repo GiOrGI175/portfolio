@@ -3,10 +3,19 @@
 import { navLinks, soclialLinks } from '@/commons/services/Links';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { itemVariants } from '@/components/_atoms/aboutMe_atoms/FrontEndStuck';
 
 const Footer = () => {
+  const headingRef = useRef(null);
+  const isInView = useInView(headingRef, { once: false, margin: '-100px' });
+
   return (
-    <footer className='relative hero_gradient w-full flex justify-center h-[800px]'>
+    <footer
+      ref={headingRef}
+      className='relative hero_gradient w-full flex justify-center h-[800px]'
+    >
       <video
         className='absolute top-0 left-0 w-full h-full object-cover z-0'
         autoPlay
@@ -20,16 +29,29 @@ const Footer = () => {
       <div className='max-w-[1440px] w-full flex flex-col items-center relative z-10'>
         <div className='max-w-[1280px] w-full h-full pb-[70px] mt-[120px] flex flex-col justify-between'>
           <div className='w-full flex justify-between'>
-            <div>
+            <motion.div
+              initial={{ y: '100vw' }}
+              animate={isInView ? { y: 0 } : {}}
+              transition={{
+                duration: 0.8,
+                ease: 'easeOut',
+                type: 'spring',
+                stiffness: 80,
+              }}
+            >
               <span className='firaCode font-normal text-[100px] leading-[41px] text-white'>
                 Check me out
               </span>
-            </div>
+            </motion.div>
             <div className='flex gap-[50px]'>
-              {soclialLinks.map((item) => (
-                <div
+              {soclialLinks.map((item, index) => (
+                <motion.div
                   key={item.img}
                   className='w-[60px] h-[60px] rounded-full flex justify-center items-center bg-[white] cursor-pointer'
+                  custom={index}
+                  variants={itemVariants}
+                  initial='hidden'
+                  animate={isInView ? 'visible' : 'hidden'}
                 >
                   <Image
                     src={item.img}
@@ -37,11 +59,21 @@ const Footer = () => {
                     height={40}
                     alt='social media links'
                   />
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-          <div className='w-full flex justify-between items-center border-t-[1px] border-[white] '>
+          <motion.div
+            className='w-full flex justify-between items-center border-t-[1px] border-[white] '
+            initial={{ y: '100vw' }}
+            animate={isInView ? { y: 0 } : {}}
+            transition={{
+              duration: 0.8,
+              ease: 'easeOut',
+              type: 'spring',
+              stiffness: 80,
+            }}
+          >
             <div className='flex justify-center items-center'>
               <span className='firaCode font-normal text-[25px] leading-[41px]  text-white'>
                 &lt;
@@ -67,7 +99,7 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </footer>

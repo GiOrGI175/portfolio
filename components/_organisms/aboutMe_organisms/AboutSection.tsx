@@ -1,8 +1,10 @@
+'use client';
+
 import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
 import MyStuck from '@/components/_molecules/aboutMe_molecules/MyStuck';
 import Image from 'next/image';
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const text = `I am a junior fullstack  web developer. I am very hardworking, I love
             solving problems and getting things done. My slogan is "If it
@@ -13,22 +15,43 @@ const text = `I am a junior fullstack  web developer. I am very hardworking, I l
             master a new approach and any new language.`;
 
 const AboutSection = () => {
+  const headingRef = useRef(null);
+  const isInView = useInView(headingRef, { once: false, margin: '-100px' });
+
   return (
-    <div className='hero_gradient w-full flex justify-center'>
+    <div className='hero_gradient w-full flex justify-center overflow-hidden'>
       <div className='max-w-[1440px] w-full flex flex-col items-center'>
-        <div className=' max-w-[1280px] w-full pb-[70px] mt-[100px] flex flex-col'>
+        <div
+          ref={headingRef}
+          className=' max-w-[1280px] w-full pb-[70px] mt-[100px] flex flex-col '
+        >
           <motion.div
             className='px-[50px] py-[50px] flex justify-center'
-            initial={{ x: '-100wv', y: '-100wv' }}
-            animate={{ x: 0, y: 0 }}
-            transition={{ duration: 1.5 }}
+            initial={{ x: '100vw', y: '-100vh' }}
+            animate={isInView ? { x: 0, y: 0 } : {}}
+            transition={{
+              duration: 0.8,
+              ease: 'easeOut',
+              type: 'spring',
+              stiffness: 120,
+            }}
           >
             <h2 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl '>
               About ME
             </h2>
           </motion.div>
           <div className='relative  w-full h-[500px] z-20  flex justify-between'>
-            <div className='w-full flex  '>
+            <motion.div
+              className='w-full flex  '
+              initial={{ x: '-100vw', y: '-100vh' }}
+              animate={isInView ? { x: 0, y: 0 } : {}}
+              transition={{
+                duration: 0.8,
+                ease: 'easeOut',
+                type: 'spring',
+                stiffness: 120,
+              }}
+            >
               <div className='relative max-w-[500px] w-full h-[500px] rounded-full overflow-hidden z-20 drop-shadow-2xl'>
                 <Image
                   src='/assets/img/about-me.webp'
@@ -39,7 +62,7 @@ const AboutSection = () => {
               </div>
               <div className='absolute top-[20px] left-[300px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
               <div className='absolute bottom-[20px] left-[0px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
-            </div>
+            </motion.div>
             <div className='relative max-w-[700px] w-full flex items-center'>
               <StaggeredFade text={text} />
               <div className='absolute top-[0px] left-[450px] z-10 w-[300px] h-[600px] rounded-l-full bg-[#340a83] blur-[200px]' />

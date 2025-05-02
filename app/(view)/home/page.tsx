@@ -1,14 +1,14 @@
 'use client';
 
 import { BlurIn } from '@/components/_atoms/home_atoms/blur_text';
-import { StaggeredFade } from '@/components/_atoms/home_atoms/StaggeredFade';
+import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
 
 import Header from '@/components/_organisms/header_organisms/Header';
 import { motion } from 'framer-motion';
 
 export default function HomePage() {
   return (
-    <div className='hero_gradient w-full flex flex-col items-center'>
+    <div className='hero_gradient w-full flex flex-col items-center overflow-hidden'>
       <Header />
       <div className='max-w-[1440px] w-full flex flex-col items-center'>
         <motion.div

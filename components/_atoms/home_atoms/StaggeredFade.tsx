@@ -1,4 +1,5 @@
 'use client';
+
 import { motion, useInView } from 'framer-motion';
 import * as React from 'react';
 
