@@ -5,6 +5,7 @@ import MyStuck from '@/components/_molecules/aboutMe_molecules/MyStuck';
 import Image from 'next/image';
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import ProjectSection from '@/components/_molecules/aboutMe_molecules/ProjectSection';
 
 const text = `I am a junior fullstack  web developer. I am very hardworking, I love
             solving problems and getting things done. My slogan is "If it
@@ -79,6 +80,7 @@ const AboutSection = () => {
             </div>
           </div>
           <MyStuck />
+          <ProjectSection />
         </div>
       </div>
     </div>
