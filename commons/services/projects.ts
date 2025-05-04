@@ -29,6 +29,7 @@ export const projects = [
     name: 'Simple Movies web',
     year: '2024',
     mount: 'SEP',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/SimplePortfolio.png',
@@ -36,6 +37,7 @@ export const projects = [
     name: 'Simple Portfolio web',
     year: '2024',
     mount: 'AUG',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/CountryApi.png',
@@ -43,6 +45,7 @@ export const projects = [
     name: 'Country API web',
     year: '2024',
     mount: 'AUG',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/RickAndMortApi.png',
@@ -50,6 +53,7 @@ export const projects = [
     name: 'Rick And Mort API web',
     year: '2024',
     mount: 'JUN',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/bank.png',
@@ -57,6 +61,7 @@ export const projects = [
     name: 'bank web',
     year: '2024',
     mount: 'MAY',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/weatherApi.png',
@@ -64,6 +69,7 @@ export const projects = [
     name: 'Weater API web',
     year: '2024',
     mount: 'APR',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/gitHubApi.png',
@@ -71,6 +77,7 @@ export const projects = [
     name: 'GitHub API web',
     year: '2024',
     mount: 'APR',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/FAQ.png',
@@ -78,6 +85,7 @@ export const projects = [
     name: 'mini FAQ ',
     year: '2024',
     mount: 'MAR',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/rockStrar.png',
@@ -85,6 +93,7 @@ export const projects = [
     name: 'RockStrar web',
     year: '2024',
     mount: 'feb',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
   {
     img: '/assets/img/keyBoard.png',
@@ -92,5 +101,6 @@ export const projects = [
     name: 'keyBoard web',
     year: '2024',
     mount: 'feb',
+    info: 'პირველი ეტაპის ბოლოს ავაწყეთ მხლოდ ჯავასკრიპტით',
   },
 ];

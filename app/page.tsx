@@ -7,9 +7,6 @@ export default function Home() {
   return (
     <>
       <HomePage />
-      <AboutSection />
-      <GithubSection />
-      <ContactMe />
     </>
   );
 }

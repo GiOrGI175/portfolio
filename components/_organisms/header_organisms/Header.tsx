@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 const Header = () => {
-  const pathName = usePathname();
+  const pathName = usePathname() || '';
 
   return (
     <motion.header
@@ -32,7 +32,7 @@ const Header = () => {
           duration: 1.5,
           ease: 'easeInOut',
           border: { duration: 1.5, ease: 'easeInOut' },
-          boxShadow: { duration: 1.5, ease: 'easeInOut' },
+          boxShadow: { delay: 2, duration: 1.5, ease: 'easeInOut' },
         }}
       >
         <div className='flex justify-center items-center'>

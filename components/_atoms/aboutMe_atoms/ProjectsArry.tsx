@@ -24,7 +24,7 @@ const ProjectsArry = () => {
               className={`flex ${
                 (index + 1) % 2 === 0 ? 'flex-row-reverse' : 'flex-row'
               } items-center justify-between   ${
-                index + 1 === 3 ? 'mb-[0px]' : ' mb-[200px]'
+                index + 1 === 3 ? 'mb-[0px] h-[500px]' : ' mb-[200px]'
               }  `}
             >
               <Link
