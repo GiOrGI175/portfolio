@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useInView, motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { projects } from '@/commons/services/projects';
 
 const ProjectItem = ({ item, index }: { item: any; index: number }) => {
   const ref = useRef(null);
@@ -15,7 +16,7 @@ const ProjectItem = ({ item, index }: { item: any; index: number }) => {
         className={`flex ${
           (index + 1) % 2 === 0 ? 'flex-row-reverse' : 'flex-row'
         } items-center justify-between ${
-          index + 1 === 3 ? 'mb-[0px] h-[500px]' : 'mb-[200px]'
+          index + 1 === projects.length ? 'mb-[70px] h-[500px]' : 'mb-[200px]'
         }`}
       >
         <Link
