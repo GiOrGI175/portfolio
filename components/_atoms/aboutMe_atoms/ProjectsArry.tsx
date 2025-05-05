@@ -57,7 +57,6 @@ const ProjectsArry = () => {
                   className='rounded-2xl overflow-hidden'
                   initial={{
                     scale: 1,
-
                     x: (index + 1) % 2 === 0 ? '100vw' : '-100vw',
                   }}
                   animate={isInViewEl ? { x: 0 } : undefined}
