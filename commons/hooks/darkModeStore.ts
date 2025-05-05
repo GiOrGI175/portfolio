@@ -1,19 +1,21 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 type darkModeStoreT = {
   darkMode: boolean;
   setDarkMode: (value: boolean) => void;
 };
 
-const darkModeStore = create<darkModeStoreT>((set) => ({
-  darkMode:
-    typeof window !== 'undefined'
-      ? JSON.parse(localStorage.getItem('darkMode') || 'true')
-      : true,
-  setDarkMode: (value: boolean) => {
-    localStorage.setItem('darkMode', JSON.stringify(value));
-    set({ darkMode: value });
-  },
-}));
+const darkModeStore = create<darkModeStoreT>()(
+  persist(
+    (set) => ({
+      darkMode: true,
+      setDarkMode: (value) => set({ darkMode: value }),
+    }),
+    {
+      name: 'dark-mode-storage',
+    }
+  )
+);
 
 export default darkModeStore;

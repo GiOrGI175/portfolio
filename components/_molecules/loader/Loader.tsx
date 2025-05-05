@@ -1,5 +1,6 @@
 'use client';
 
+import darkModeStore from '@/commons/hooks/darkModeStore';
 import { TypingEffect } from '@/components/_atoms/loader_atoms/TypingEffect';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -32,12 +33,16 @@ const Loader = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const darkMode = darkModeStore((state) => state.darkMode);
+
   return (
     <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-transparent'>
       {divs.map((item, index) => (
         <motion.div
           key={item}
-          className='flex-1 h-full bg-[#0e0b2e]'
+          className={`flex-1 h-full  ${
+            darkMode ? 'bg-[#0e0b2e]' : 'bg-[#9911ff]'
+          } duration-700`}
           custom={index}
           variants={loaderVariants}
           initial='hidden'
