@@ -1,12 +1,33 @@
 'use client';
 
 import * as motion from 'motion/react-client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import darkModeStore from '@/commons/hooks/darkModeStore';
 
 export default function LayoutAnimation() {
   const [isOn, setIsOn] = useState(false);
 
   const toggleSwitch = () => setIsOn(!isOn);
+
+  const setDarkMode = darkModeStore((state) => state.setDarkMode);
+  const darkMode = darkModeStore((state) => state.darkMode);
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode !== null) {
+      const mode = JSON.parse(savedMode);
+      setDarkMode(mode);
+      setIsOn(mode);
+    }
+  }, []);
+
+  useEffect(() => {
+    setDarkMode(isOn);
+  }, [isOn]);
+
+  useEffect(() => {
+    console.log('Zustand darkMode:', darkMode);
+  }, [darkMode]);
 
   return (
     <div className='flex justify-center items-center gap-[10px]'>
