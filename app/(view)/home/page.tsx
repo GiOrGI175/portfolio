@@ -1,5 +1,6 @@
 'use client';
 
+import darkModeStore from '@/commons/hooks/darkModeStore';
 import { BlurIn } from '@/components/_atoms/home_atoms/blur_text';
 import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
 import Loader from '@/components/_molecules/loader/Loader';
@@ -22,9 +23,27 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
+  const darkMode = darkModeStore((state) => state.darkMode);
+
+  const bgColor = darkMode ? '#130f40' : '#f0eaff';
+  const bgImage = darkMode
+    ? 'linear-gradient(315deg, #0e0b2e 0%, #0e0910 74%)'
+    : 'linear-gradient(315deg, #e0ddff 0%, #f9f8fc 74%)';
+
   return (
     <>
-      <div className='hero_gradient w-full flex flex-col items-center overflow-hidden'>
+      <motion.div
+        className='w-full flex flex-col items-center overflow-hidden'
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+          backgroundColor: bgColor,
+          backgroundImage: bgImage,
+        }}
+        transition={{ duration: 0.7 }}
+      >
         <Header />
         <div className='max-w-[1440px] w-full flex flex-col items-center'>
           <motion.div
@@ -45,7 +64,11 @@ export default function HomePage() {
             }}
           >
             <div className='flex flex-col gap-[20px] pl-[50px]'>
-              <p className='firaCode font-normal text-[20px] leading-[41px] text-white opacity-50'>
+              <p
+                className={`firaCode font-normal text-[20px] leading-[41px] ${
+                  darkMode ? 'text-white' : 'text-[#9911ff]'
+                } duration-700  opacity-50 `}
+              >
                 FULL-STACK WEB DEVELOPER
               </p>
 
@@ -61,7 +84,7 @@ export default function HomePage() {
           </motion.div>
         </div>
         {loader && <Loader />}
-      </div>
+      </motion.div>
       <AboutSection />
       <GithubSection />
       <ContactMe />

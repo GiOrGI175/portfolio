@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import './contributions.css';
+import darkModeStore from '@/commons/hooks/darkModeStore';
 
 type ContributionDay = {
   date: string;
@@ -69,13 +70,19 @@ export default function GithubContributions() {
     }, 0);
   };
 
+  const darkMode = darkModeStore((state) => state.darkMode);
+
   return (
     <div className='flex flex-col '>
       <div className='flex justify-between'>
         <div className='text-white text-lg font-semibold mb-4 firaCode'>
           Total Contributions in {year}: {getTotalContributions()}
         </div>
-        <div className='bg-[#0e0910] px-[10px] w-fit mb-[20px] rounded-2xl self-end'>
+        <div
+          className={`${
+            darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'
+          } duration-700  px-[10px] w-fit mb-[20px] rounded-2xl self-end`}
+        >
           <label htmlFor='year' className='text-white firaCode'>
             Year:{' '}
           </label>
@@ -83,14 +90,20 @@ export default function GithubContributions() {
             id='year'
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className='firaCode w-[100px] h-[50px] text-white bg-[#0e0910]'
+            className={`firaCode w-[100px] h-[50px] text-white ${
+              darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'
+            } duration-700 `}
           >
             <option value='2025'>2025</option>
             <option value='2024'>2024</option>
           </select>
         </div>
       </div>
-      <div className='w-[1200px] h-[250px] p-[30px] border flex justify-between  items-center flex-col bg-[#0e0910] rounded-2xl '>
+      <div
+        className={`w-[1200px] h-[250px] p-[30px] border flex justify-between  items-center flex-col   ${
+          darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'
+        } duration-700  rounded-2xl `}
+      >
         <table id='contribution-table' className='!w-full !h-full'>
           <thead>
             <tr className='!w-[15px] !h-[15px] border border-[green]'>
@@ -121,7 +134,11 @@ export default function GithubContributions() {
             ))}
           </tbody>
         </table>
-        <div className='bg-[#0e0910] px-[10px] w-fit pt-[15px] rounded-2xl self-end flex justify-between items-center gap-[5px]'>
+        <div
+          className={`${
+            darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'
+          } duration-700   px-[10px] w-fit pt-[15px] rounded-2xl self-end flex justify-between items-center gap-[5px]`}
+        >
           <span className='firaCode text-white text-[16px] font-medium pr-[5px]'>
             less
           </span>

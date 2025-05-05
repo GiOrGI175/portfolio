@@ -1,5 +1,6 @@
 'use client';
 
+import darkModeStore from '@/commons/hooks/darkModeStore';
 import ContactMeForm from '@/components/_molecules/contactMe_moloecules/ContactMeForm';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -8,8 +9,26 @@ const ContactMe = () => {
   const headingRef = useRef(null);
   const isInView = useInView(headingRef, { once: false, margin: '-100px' });
 
+  const darkMode = darkModeStore((state) => state.darkMode);
+
+  const bgColor = darkMode ? '#130f40' : '#f0eaff';
+  const bgImage = darkMode
+    ? 'linear-gradient(315deg, #0e0b2e 0%, #0e0910 74%)'
+    : 'linear-gradient(315deg, #e0ddff 0%, #f9f8fc 74%)';
+
   return (
-    <div className='hero_gradient w-full flex justify-center'>
+    <motion.div
+      className='hero_gradient w-full flex justify-center'
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        backgroundColor: bgColor,
+        backgroundImage: bgImage,
+      }}
+      transition={{ duration: 0.7 }}
+    >
       <motion.div
         ref={headingRef}
         className=' w-full flex justify-center overflow-hidden  bg-cover bg-center bg-no-repeat'
@@ -31,7 +50,11 @@ const ContactMe = () => {
                 stiffness: 120,
               }}
             >
-              <h3 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl'>
+              <h3
+                className={`firaCode font-bold text-[90px] leading-[90px] ${
+                  darkMode ? 'text-white' : 'text-[#9911ff]'
+                } drop-shadow-2xl`}
+              >
                 Contact Me
               </h3>
             </motion.div>
@@ -51,7 +74,7 @@ const ContactMe = () => {
           </div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

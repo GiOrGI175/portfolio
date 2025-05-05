@@ -5,14 +5,21 @@ import Image from 'next/image';
 import React, { useRef } from 'react';
 import { itemVariants } from './FrontEndStuck';
 import { motion, useInView } from 'framer-motion';
+import darkModeStore from '@/commons/hooks/darkModeStore';
 
 const BackEndStuck = () => {
   const headingRef = useRef(null);
   const isInView = useInView(headingRef, { once: false, margin: '-100px' });
 
+  const darkMode = darkModeStore((state) => state.darkMode);
+
   return (
     <div ref={headingRef} className='flex justify-between'>
-      <span className=' pl-[20px] firaCode font-normal text-[50px] leading-[41px] text-white'>
+      <span
+        className={` pl-[20px] firaCode font-normal text-[50px] leading-[41px] ${
+          darkMode ? 'text-white' : 'text-[#9911ff]'
+        } duration-700`}
+      >
         BACKEND:
       </span>
       <div className='max-w-[800px] w-full flex flex-wrap gap-[30px]'>
@@ -25,11 +32,19 @@ const BackEndStuck = () => {
             initial='hidden'
             animate={isInView ? 'visible' : 'hidden'}
           >
-            <div className='w-[50px] h-[50px] rounded-full flex justify-center items-center bg-[white] '>
+            <div
+              className={`w-[50px] h-[50px] rounded-full flex justify-center items-center  ${
+                darkMode ? 'bg-white' : 'bg-[#f0f0f0] '
+              } duration-700`}
+            >
               <Image src={item.icon} width={30} height={30} alt='language' />
             </div>
             <div>
-              <span className=' pl-[20px] firaCode font-normal text-[22px] leading-[41px] text-white'>
+              <span
+                className={`pl-[20px] firaCode font-normal text-[22px] leading-[41px] ${
+                  darkMode ? 'text-white' : 'text-[#9911ff]'
+                } duration-700`}
+              >
                 {item.language}
               </span>
             </div>

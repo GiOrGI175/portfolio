@@ -5,10 +5,13 @@ import { useInView, motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { projects } from '@/commons/services/projects';
+import darkModeStore from '@/commons/hooks/darkModeStore';
 
 const ProjectItem = ({ item, index }: { item: any; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: '-100px' });
+
+  const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
     <div className='flex flex-col overflow-hidden' ref={ref}>
@@ -26,7 +29,9 @@ const ProjectItem = ({ item, index }: { item: any; index: number }) => {
           className='flex flex-col items-center'
         >
           <motion.span
-            className='firaCode text-[40px] leading-[50px] text-white mb-[30px] ml-[50px]'
+            className={`firaCode text-[40px] leading-[50px] ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700 mb-[30px] ml-[50px]`}
             initial={{
               x: (index + 1) % 2 === 0 ? '-100vw' : '100vw',
             }}
@@ -74,7 +79,11 @@ const ProjectItem = ({ item, index }: { item: any; index: number }) => {
             stiffness: 120,
           }}
         >
-          <p className='firaCode text-[20px] leading-[50px] text-white'>
+          <p
+            className={`firaCode text-[20px] leading-[50px] ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } `}
+          >
             {item.info}
           </p>
         </motion.div>
