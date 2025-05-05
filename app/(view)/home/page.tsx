@@ -33,7 +33,7 @@ export default function HomePage() {
   return (
     <>
       <motion.div
-        className={` w-full flex flex-col items-center overflow-hidden !transition-colors !duration-500 !ease-in-out`}
+        className='w-full flex flex-col items-center overflow-hidden'
         initial={{
           opacity: 0,
         }}

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import ProjectSection from '@/components/_molecules/aboutMe_molecules/ProjectSection';
+import darkModeStore from '@/commons/hooks/darkModeStore';
 
 const text = `I am a junior fullstack  web developer. I am very hardworking, I love
             solving problems and getting things done. My slogan is "If it
@@ -19,8 +20,26 @@ const AboutSection = () => {
   const headingRef = useRef(null);
   const isInView = useInView(headingRef, { once: false, margin: '-100px' });
 
+  const darkMode = darkModeStore((state) => state.darkMode);
+
+  const bgColor = darkMode ? '#130f40' : '#f0eaff';
+  const bgImage = darkMode
+    ? 'linear-gradient(315deg, #0e0b2e 0%, #0e0910 74%)'
+    : 'linear-gradient(315deg, #e0ddff 0%, #f9f8fc 74%)';
+
   return (
-    <div className='hero_gradient w-full flex justify-center overflow-hidden'>
+    <motion.div
+      className='hero_gradient w-full flex justify-center overflow-hidden'
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        backgroundColor: bgColor,
+        backgroundImage: bgImage,
+      }}
+      transition={{ duration: 0.7 }}
+    >
       <div className='max-w-[1440px] w-full flex flex-col items-center'>
         <div
           ref={headingRef}
@@ -37,7 +56,11 @@ const AboutSection = () => {
               stiffness: 120,
             }}
           >
-            <h2 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl '>
+            <h2
+              className={`firaCode font-bold text-[90px] leading-[90px]  ${
+                darkMode ? 'text-white' : 'text-[#9911ff]'
+              } duration-700  drop-shadow-2xl`}
+            >
               About ME
             </h2>
           </motion.div>
@@ -83,7 +106,7 @@ const AboutSection = () => {
           <ProjectSection />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

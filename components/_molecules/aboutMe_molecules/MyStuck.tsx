@@ -1,5 +1,6 @@
 'use client';
 
+import darkModeStore from '@/commons/hooks/darkModeStore';
 import BackEndStuck from '@/components/_atoms/aboutMe_atoms/BackEndStuck';
 import BasesStuck from '@/components/_atoms/aboutMe_atoms/BasesStuck';
 import FrontEndStuck from '@/components/_atoms/aboutMe_atoms/FrontEndStuck';
@@ -10,6 +11,8 @@ import { useRef } from 'react';
 const MyStuck = () => {
   const headingRef = useRef(null);
   const isInView = useInView(headingRef, { once: false, margin: '-100px' });
+
+  const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
     <div ref={headingRef} className='mt-[100px] w-full'>
@@ -24,7 +27,11 @@ const MyStuck = () => {
           stiffness: 120,
         }}
       >
-        <h2 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl '>
+        <h2
+          className={`firaCode font-bold text-[90px] leading-[90px] ${
+            darkMode ? 'text-white' : 'text-[#9911ff]'
+          } duration-700 drop-shadow-2xl `}
+        >
           My Stuck
         </h2>
       </motion.div>

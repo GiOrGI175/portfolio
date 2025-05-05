@@ -3,8 +3,11 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
+import darkModeStore from '@/commons/hooks/darkModeStore';
 
 const ProjectsArry = () => {
+  const darkMode = darkModeStore((state) => state.darkMode);
+
   return (
     <>
       {projects.slice(0, 3).map((item, index) => {
@@ -34,7 +37,9 @@ const ProjectsArry = () => {
                 className='flex flex-col items-center'
               >
                 <motion.span
-                  className='firaCode text-[40px] leading-[50px] text-white mb-[30px] ml-[50px]'
+                  className={`firaCode text-[40px] leading-[50px] ${
+                    darkMode ? 'text-white' : 'text-[#9911ff]'
+                  } duration-700 mb-[30px] ml-[50px]`}
                   initial={{
                     x: (index + 1) % 2 === 0 ? '-100vw' : '100vw',
                   }}
@@ -86,7 +91,11 @@ const ProjectsArry = () => {
                   stiffness: 120,
                 }}
               >
-                <p className='firaCode text-[20px] leading-[50px] text-white '>
+                <p
+                  className={`firaCode text-[20px] leading-[50px] ${
+                    darkMode ? 'text-white' : 'text-[#9911ff]'
+                  } duration-700 `}
+                >
                   {item.info}
                 </p>
               </motion.div>

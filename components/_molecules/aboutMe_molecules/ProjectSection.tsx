@@ -1,5 +1,6 @@
 'use client';
 
+import darkModeStore from '@/commons/hooks/darkModeStore';
 import ProjectsArry from '@/components/_atoms/aboutMe_atoms/ProjectsArry';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
@@ -8,6 +9,8 @@ import { useRef } from 'react';
 const ProjectSection = () => {
   const headingRef = useRef(null);
   const isInView = useInView(headingRef, { once: false, margin: '-100px' });
+
+  const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
     <div ref={headingRef} className='mt-[200px] w-full'>
@@ -23,7 +26,11 @@ const ProjectSection = () => {
             stiffness: 120,
           }}
         >
-          <h2 className='firaCode font-bold text-[90px] leading-[90px] text-white drop-shadow-2xl '>
+          <h2
+            className={`firaCode font-bold text-[90px] leading-[90px] ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700 drop-shadow-2xl `}
+          >
             My Projects
           </h2>
         </motion.div>
@@ -43,7 +50,11 @@ const ProjectSection = () => {
             }}
           >
             <Link href='/projects'>
-              <span className='firaCode text-[20px] leading-[20px] text-[white]'>
+              <span
+                className={`firaCode text-[20px] leading-[20px] ${
+                  darkMode ? 'text-white' : 'text-[#9911ff]'
+                } duration-700`}
+              >
                 See More
               </span>
             </Link>
