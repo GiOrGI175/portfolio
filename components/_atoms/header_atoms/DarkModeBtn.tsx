@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import darkModeStore from '@/commons/hooks/darkModeStore';
 
 export default function LayoutAnimation() {
-  const [isOn, setIsOn] = useState(false);
+  const [isOn, setIsOn] = useState(true);
 
   const toggleSwitch = () => setIsOn(!isOn);
 
@@ -31,14 +31,20 @@ export default function LayoutAnimation() {
 
   return (
     <div className='flex justify-center items-center gap-[10px]'>
-      <span className='firaCode font-normal text-[16px] leading-[41px]  text-white'>
+      <span
+        className={`firaCode font-normal text-[16px] leading-[41px]  ${
+          darkMode ? 'text-white' : 'text-[#9911ff]'
+        } duration-700`}
+      >
         Light
       </span>
       <button
-        className='toggle-container !bg-black !h-[30px] !w-[50px] !flex !items-center p-[5px]'
+        className={`toggle-container  ${
+          darkMode ? '!bg-black' : 'bg-[white]'
+        } duration-700  !h-[30px] !w-[50px] !flex !items-center p-[5px]`}
         style={{
           ...container,
-          justifyContent: 'flex-' + (isOn ? 'start' : 'end'),
+          justifyContent: 'flex-' + (isOn ? 'end' : 'start'),
         }}
         onClick={toggleSwitch}
       >
@@ -53,7 +59,11 @@ export default function LayoutAnimation() {
           }}
         />
       </button>
-      <span className='firaCode font-normal text-[16px] leading-[41px]  text-white'>
+      <span
+        className={`firaCode font-normal text-[16px] leading-[41px]  ${
+          darkMode ? 'text-white' : 'text-[#9911ff]'
+        } duration-700`}
+      >
         Dark
       </span>
     </div>

@@ -8,8 +8,8 @@ type darkModeStoreT = {
 const darkModeStore = create<darkModeStoreT>((set) => ({
   darkMode:
     typeof window !== 'undefined'
-      ? JSON.parse(localStorage.getItem('darkMode') || 'false')
-      : false,
+      ? JSON.parse(localStorage.getItem('darkMode') || 'true')
+      : true,
   setDarkMode: (value: boolean) => {
     localStorage.setItem('darkMode', JSON.stringify(value));
     set({ darkMode: value });

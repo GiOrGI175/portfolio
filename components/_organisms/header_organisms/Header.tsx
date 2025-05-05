@@ -6,9 +6,12 @@ import LayoutAnimation from '@/components/_atoms/header_atoms/DarkModeBtn';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import darkModeStore from '@/commons/hooks/darkModeStore';
 
 const Header = () => {
   const pathName = usePathname() || '';
+
+  const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
     <motion.header
@@ -36,14 +39,26 @@ const Header = () => {
         }}
       >
         <div className='flex justify-center items-center'>
-          <span className='firaCode font-normal text-[25px] leading-[41px]  text-white'>
+          <span
+            className={`firaCode font-normal text-[25px] leading-[41px] ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700`}
+          >
             &lt;
           </span>
-          <h1 className='firaCode font-normal text-[25px] leading-[41px] text-white'>
+          <h1
+            className={`firaCode font-normal text-[25px] leading-[41px] ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700`}
+          >
             Giorgi Nozadze
           </h1>
 
-          <span className='firaCode font-normal text-[25px] leading-[41px]  text-white'>
+          <span
+            className={`firaCode font-normal text-[25px] leading-[41px] ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700`}
+          >
             &gt;
           </span>
         </div>
@@ -62,7 +77,11 @@ const Header = () => {
                   } duration-500 flex items-center `}
                 >
                   <Link href={item.link}>
-                    <span className='firaCode font-normal text-[25px] leading-[41px] text-white'>
+                    <span
+                      className={`firaCode font-normal text-[25px] leading-[41px] ${
+                        darkMode ? 'text-white' : 'text-[#9911ff]'
+                      } duration-700`}
+                    >
                       {item.title}
                     </span>
                   </Link>

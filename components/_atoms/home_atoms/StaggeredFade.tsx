@@ -1,5 +1,6 @@
 'use client';
 
+import darkModeStore from '@/commons/hooks/darkModeStore';
 import { motion, useInView } from 'framer-motion';
 import * as React from 'react';
 
@@ -22,6 +23,8 @@ const StaggeredFade: React.FC<TextStaggeredFadeProps> = ({ text }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const darkMode = darkModeStore((state) => state.darkMode);
+
   return (
     <motion.h2
       ref={ref}
@@ -29,7 +32,9 @@ const StaggeredFade: React.FC<TextStaggeredFadeProps> = ({ text }) => {
       animate={isInView ? 'show' : ''}
       variants={variants}
       viewport={{ once: true }}
-      className='max-w-[700] pl-[20px] firaCode font-normal text-[22px] leading-[41px] text-white'
+      className={`max-w-[700] pl-[20px] firaCode font-normal text-[22px] leading-[41px] ${
+        darkMode ? 'text-white' : 'text-[#9911ff]'
+      } duration-700`}
     >
       {letters.map((word, i) => (
         <motion.span key={`${word}-${i}`} variants={variants} custom={i}>
