@@ -8,7 +8,7 @@ export const navLinks = [
     title: 'Projects',
   },
   {
-    link: '/Blog',
+    link: '/blog',
     title: 'Blog',
   },
   {

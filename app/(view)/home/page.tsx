@@ -5,6 +5,7 @@ import { BlurIn } from '@/components/_atoms/home_atoms/blur_text';
 import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
 import Loader from '@/components/_molecules/loader/Loader';
 import AboutSection from '@/components/_organisms/aboutMe_organisms/AboutSection';
+import BlogSection from '@/components/_organisms/blog_organisms/BlogSection';
 import ContactMe from '@/components/_organisms/contactMe_organisms/ContactMe';
 import GithubSection from '@/components/_organisms/githubContributions _organisms/GithubSection';
 
@@ -87,6 +88,7 @@ export default function HomePage() {
       </motion.div>
       <AboutSection />
       <GithubSection />
+      <BlogSection />
       <ContactMe />
     </>
   );
