@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import darkModeStore from '@/commons/hooks/darkModeStore';
+import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
 
 const Header = () => {
   const pathName = usePathname() || '';
@@ -96,7 +97,7 @@ const Header = () => {
             <LayoutAnimation />
           </>
           <>
-            <ContactMeBtn />
+            <LangBtn />
           </>
         </div>
       </motion.div>
