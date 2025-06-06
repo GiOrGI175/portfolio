@@ -1,6 +1,5 @@
 'use client';
 
-import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FlatNamespace, KeyPrefix } from 'i18next';
 import i18next from 'i18next';
@@ -20,24 +19,15 @@ export function useT<
   ns?: Ns,
   options?: UseTranslationOptions<KPrefix>
 ): UseTranslationResponse<FallbackNs<Ns>, KPrefix> {
-  const lng = useParams()?.lng;
-  if (typeof lng !== 'string')
-    throw new Error('useT is only available inside /app/[lng]');
-  if (runsOnServerSide && i18next.resolvedLanguage !== lng) {
-    i18next.changeLanguage(lng);
-  } else {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [activeLng, setActiveLng] = useState(i18next.resolvedLanguage);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      if (activeLng === i18next.resolvedLanguage) return;
-      setActiveLng(i18next.resolvedLanguage);
-    }, [activeLng, i18next.resolvedLanguage]);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      if (!lng || i18next.resolvedLanguage === lng) return;
-      i18next.changeLanguage(lng);
-    }, [lng, i18next]);
-  }
+  const [activeLng, setActiveLng] = useState(i18next.resolvedLanguage);
+
+  useEffect(() => {
+    const currentLang = i18next.language || 'en';
+    if (currentLang !== activeLng) {
+      i18next.changeLanguage(currentLang);
+      setActiveLng(currentLang);
+    }
+  }, [activeLng]);
+
   return useTranslation(ns, options);
 }

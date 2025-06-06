@@ -1,66 +1,71 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import i18next from '@/i18n/i18next'; // შეცვალე გზა თუ შენს პროექტში სხვაგანაა
+import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import darkModeStore from '@/commons/hooks/darkModeStore';
 
 const LangBtn = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('geo');
-
-  const handleChange = (event: any) => {
-    setSelectedLanguage(event.target.value);
-  };
-
+  const { i18n, t } = useTranslation();
   const darkMode = darkModeStore((state) => state.darkMode);
 
+  const [currentLang, setCurrentLang] = useState<string | null>(null);
+
+  const toggleLanguage = () => {
+    if (!currentLang) return;
+
+    const newLang = currentLang === 'en' ? 'ka' : 'en';
+    i18next.changeLanguage(newLang).then(() => {
+      document.documentElement.lang = newLang;
+      setCurrentLang(newLang);
+    });
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentLang(i18next.language || 'en');
+    }
+
+    const handleLangChange = (lng: string) => {
+      setCurrentLang(lng);
+    };
+
+    i18next.on('languageChanged', handleLangChange);
+    return () => i18next.off('languageChanged', handleLangChange);
+  }, []);
+
+  // თავიდან აიცილე hydration mismatch
+  if (currentLang === null) return null;
+
   return (
-    <div
-      className={`flex items-center border-[1px] border-[#9911ff] rounded-4xl px-[5px]  ${
-        darkMode ? 'text-white bg-[black]' : 'text-[#9911ff] bg-transparent'
-      } duration-700`}
+    <button
+      onClick={toggleLanguage}
+      className={`flex items-center border-[1px] border-[#9911ff] rounded-4xl px-[10px] py-[4px] ${
+        darkMode ? 'text-white bg-black' : 'text-[#9911ff] bg-transparent'
+      }`}
     >
-      <select
-        value={selectedLanguage}
-        onChange={handleChange}
-        style={{ outline: 'none', boxShadow: 'none' }}
-        className='p-2'
-      >
-        <option
-          value='geo'
-          className={` ${
-            darkMode ? 'bg-[black]' : 'bg-[#f0eaff]'
-          } duration-700`}
-        >
-          Geo
-        </option>
-        <option
-          value='en'
-          className={` ${
-            darkMode ? 'bg-[black]' : 'bg-[#f0eaff]'
-          } duration-700`}
-        >
-          EN
-        </option>
-      </select>
+      <span>{currentLang === 'en' ? 'GEO' : 'EN'}</span>
       <div className='ml-2'>
-        {selectedLanguage === 'geo' && (
-          <Image
-            src='/assets/img/georgia.png'
-            width={25}
-            height={25}
-            alt='georgian flag'
-          />
-        )}
-        {selectedLanguage === 'en' && (
+        {currentLang === 'ka' && (
           <Image
             src='/assets/img/united-kingdom.png'
-            width={25}
-            height={25}
-            alt='english flag'
+            width={20}
+            height={20}
+            alt='Georgian flag'
+          />
+        )}
+        {currentLang === 'en' && (
+          <Image
+            src='/assets/img/georgia.png'
+            width={20}
+            height={20}
+            alt='English flag'
           />
         )}
       </div>
-    </div>
+      <span className='ml-2'>{t('header.title')}</span>
+    </button>
   );
 };
 
