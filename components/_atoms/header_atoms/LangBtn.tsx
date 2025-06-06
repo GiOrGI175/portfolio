@@ -42,8 +42,8 @@ const LangBtn = () => {
     <button
       onClick={toggleLanguage}
       className={`flex items-center border-[1px] border-[#9911ff] rounded-4xl px-[10px] py-[4px] ${
-        darkMode ? 'text-white bg-black' : 'text-[#9911ff] bg-transparent'
-      }`}
+        darkMode ? 'text-white bg-black' : 'text-[#9911ff] bg-transparent '
+      } cursor-pointer duration-700`}
     >
       <span>{currentLang === 'en' ? 'GEO' : 'EN'}</span>
       <div className='ml-2'>
@@ -64,7 +64,7 @@ const LangBtn = () => {
           />
         )}
       </div>
-      <span className='ml-2'>{t('header.title')}</span>
+      {/* <span className='ml-2'>{t('header.title')}</span> */}
     </button>
   );
 };
