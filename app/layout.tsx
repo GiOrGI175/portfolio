@@ -1,15 +1,19 @@
 import './globals.css';
 import Footer from '@/components/_organisms/footer_organisms/Footer';
+import { getLocale } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const locale = await getLocale();
+
   return (
-    <html lang='en'>
+    <html lang={locale}>
       <body>
-        {children}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <Footer />
       </body>
     </html>

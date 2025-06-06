@@ -8,11 +8,14 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import darkModeStore from '@/commons/hooks/darkModeStore';
 import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
+import { useTranslations } from 'next-intl';
 
 const Header = () => {
   const pathName = usePathname() || '';
 
   const darkMode = darkModeStore((state) => state.darkMode);
+
+  const t = useTranslations();
 
   return (
     <motion.header
@@ -83,7 +86,7 @@ const Header = () => {
                         darkMode ? 'text-white' : 'text-[#9911ff]'
                       } duration-700`}
                     >
-                      {item.title}
+                      {t(item.title)}
                     </span>
                   </Link>
                 </motion.li>
