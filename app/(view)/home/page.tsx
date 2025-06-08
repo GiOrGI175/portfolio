@@ -8,10 +8,13 @@ import AboutSection from '@/components/_organisms/aboutMe_organisms/AboutSection
 import BlogSection from '@/components/_organisms/blog_organisms/BlogSection';
 import ContactMe from '@/components/_organisms/contactMe_organisms/ContactMe';
 import GithubSection from '@/components/_organisms/githubContributions _organisms/GithubSection';
-
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/_organisms/header_organisms/Header';
-import { motion } from 'framer-motion';
+import LangTranstionP from '@/lib/LangTransitionP';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 export default function HomePage() {
   const [loader, setLoader] = useState(true);
@@ -30,6 +33,10 @@ export default function HomePage() {
   const bgImage = darkMode
     ? 'linear-gradient(315deg, #0e0b2e 0%, #0e0910 74%)'
     : 'linear-gradient(315deg, #e0ddff 0%, #f9f8fc 74%)';
+
+  const locale = useLocale();
+
+  const t = useTranslations();
 
   return (
     <>
@@ -65,21 +72,35 @@ export default function HomePage() {
             }}
           >
             <div className='flex flex-col gap-[20px] pl-[50px]'>
-              <p
+              <LangTranstionP
+                title='Home.dev'
                 className={`firaCode font-normal text-[20px] leading-[41px] ${
-                  darkMode ? 'text-white' : 'text-[#9911ff]'
+                  darkMode ? 'text-[#ffffff80]' : 'text-[#9911fff2]'
                 } duration-700  opacity-50 `}
-              >
-                FULL-STACK WEB DEVELOPER
-              </p>
+              />
 
-              <BlurIn>Giorgi Nozadze</BlurIn>
+              <BlurIn>
+                <LangTranstionSpan
+                  title={'Home.myName'}
+                  className={`max-w-[200px] firaCode font-bold text-[90px] leading-[130px] ${
+                    darkMode ? 'text-white' : 'text-[#9911ff]'
+                  } duration-700`}
+                />
+              </BlurIn>
 
               <div className='flex items-center h-[130px] max-w-[450px] w-full'>
-                <div className='w-[5px] h-full bg-white'></div>
-                <StaggeredFade
-                  text={`i'm a full-stack web developer and I have work experience in re-educate`}
-                />
+                <div className='w-[5px] h-full bg-white' />
+                <AnimatePresence mode='wait'>
+                  <motion.div
+                    key={locale}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <StaggeredFade text={t('Home.workExperence')} />
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </motion.div>

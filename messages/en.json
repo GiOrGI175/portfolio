@@ -9,5 +9,34 @@
 
     "light": "Light",
     "dark": "Dark"
+  },
+  "Home": {
+    "dev": "FULL-STACK WEB DEVELOPER",
+    "myName": "Giorgi Nozadze",
+    "workExperence": "i'm a full-stack web developer and I have work experience in re-educate"
+  },
+  "About": {
+    "about": "About ME",
+    "aboutME": "I am a junior fullstack web developer. I am very hardworking, I love solving problems and getting things done. My slogan is 'If it doesn't work, you have to make it work'. I love innovations and fighting new challenges, which is what my strong character allows me to do, which is why I chose this profession. I stand out by working on myself, which allows me to develop even more in my field and master a new approach and any new language.",
+
+    "myStuck": "My Stuck",
+    "FRONTEND": "FRONTEND:",
+    "BACKEND": "BACKEND:",
+    "DATABASE": "DATABASE:",
+    "TOOLS": "TOOLS:",
+
+    "myProjects": "My Projects",
+
+    "projectName1": "Finance web",
+    "projectMount1": "MAY",
+    "projectInfo1": " During the final phase of our training course, we were divided into teams to develop joint projects using Next.js and Express.js. Appointed as the team leader, I organized task distribution, led the group, and oversaw the entire development process. Our project stood out among all teams and earned first place, which directly facilitated the start of my career through an internship opportunity.",
+
+    "projectNam2": "Elegant web",
+    "projectMount2": "MAY",
+    "projectInfo2": "During the second phase of the training program, I was once again appointed team leader. I structured the project from start to finish, delegating all key tasks, coordinating development, and overseeing execution. Under my leadership, our team secured first place in the competition. Leveraging this success, I was selected to join a real-world internship project, where I contributed to building a functional web application using Next.js on the frontend and NestJS on the backend.",
+
+    "projectNam3": "audioPlay web",
+    "projectMount3": "APR",
+    "projectInfo3": " During the first phase of the training program, I developed my first fully-functional website using only HTML, CSS, and JavaScript. I achieved a perfect score, and successfully completed the first module with top marks alongside other tasks."
   }
 }

@@ -5,6 +5,7 @@ import BackEndStuck from '@/components/_atoms/aboutMe_atoms/BackEndStuck';
 import BasesStuck from '@/components/_atoms/aboutMe_atoms/BasesStuck';
 import FrontEndStuck from '@/components/_atoms/aboutMe_atoms/FrontEndStuck';
 import ToolsStuck from '@/components/_atoms/aboutMe_atoms/ToolsStuck';
+import LangTransitionH2 from '@/lib/LangTransitionH2';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -27,13 +28,12 @@ const MyStuck = () => {
           stiffness: 120,
         }}
       >
-        <h2
+        <LangTransitionH2
+          title='About.myStuck'
           className={`firaCode font-bold text-[90px] leading-[90px] ${
             darkMode ? 'text-white' : 'text-[#9911ff]'
           } duration-700 drop-shadow-2xl `}
-        >
-          My Stuck
-        </h2>
+        />
       </motion.div>
       <div className='w-full flex flex-col gap-[120px]'>
         <FrontEndStuck />

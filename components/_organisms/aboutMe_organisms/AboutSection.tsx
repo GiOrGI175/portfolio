@@ -4,17 +4,12 @@ import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
 import MyStuck from '@/components/_molecules/aboutMe_molecules/MyStuck';
 import Image from 'next/image';
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import ProjectSection from '@/components/_molecules/aboutMe_molecules/ProjectSection';
 import darkModeStore from '@/commons/hooks/darkModeStore';
-
-const text = `I am a junior fullstack  web developer. I am very hardworking, I love
-            solving problems and getting things done. My slogan is "If it
-            doesn't work, you have to make it work". I love innovations and
-            fighting new challenges, which is what my strong character allows me
-            to do, which is why I chose this profession. I stand out by working
-            on myself, which allows me to develop even more in my field and
-            master a new approach and any new language.`;
+import LangTransitionH2 from '@/lib/LangTransitionH2';
+import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 const AboutSection = () => {
   const headingRef = useRef(null);
@@ -26,6 +21,10 @@ const AboutSection = () => {
   const bgImage = darkMode
     ? 'linear-gradient(315deg, #0e0b2e 0%, #0e0910 74%)'
     : 'linear-gradient(315deg, #e0ddff 0%, #f9f8fc 74%)';
+
+  const locale = useLocale();
+
+  const t = useTranslations();
 
   return (
     <motion.div
@@ -56,13 +55,12 @@ const AboutSection = () => {
               stiffness: 120,
             }}
           >
-            <h2
+            <LangTransitionH2
+              title='About.about'
               className={`firaCode font-bold text-[90px] leading-[90px]  ${
                 darkMode ? 'text-white' : 'text-[#9911ff]'
               } duration-700  drop-shadow-2xl`}
-            >
-              About ME
-            </h2>
+            />
           </motion.div>
           <div className='relative  w-full h-[500px] z-20  flex justify-between'>
             <motion.div
@@ -88,18 +86,19 @@ const AboutSection = () => {
               <div className='absolute bottom-[20px] left-[0px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
             </motion.div>
             <div className='relative max-w-[700px] w-full flex items-center'>
-              <StaggeredFade text={text} />
-              <div className='absolute top-[0px] left-[450px] z-10 w-[300px] h-[600px] rounded-l-full bg-[#340a83] blur-[200px]' />
+              <AnimatePresence mode='wait'>
+                <motion.div
+                  key={locale}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <StaggeredFade text={t('About.aboutME')} />
+                </motion.div>
+              </AnimatePresence>
 
-              {/* <p>
-            მე ვარ ჯუნიორ fullstuck ვებ დეველოპერი. ვარ ძალიან შრომისმოყვარე,
-            მიყვარს პრობლემების გადაჭრა და საქმის ბოლომდე მიყვანა. ჩემთავთან
-            ჩემი სლოგანი არის ''თუ არ მუშაობს უნდა აამუშაო''. მიყვარს სიახლეები
-            და ახალ გამოწვევებთან ბრძოლა რის საშუალებასაც მაძლევს ჩემი მტკიცე
-            ხასიათი, სწორედ ამიტომ ავირჩიე ეს პროფესია. გამოვირჩევი საკუთარ
-            თავზე მუშაობით რაც მაძლევს საშუალებას კიდევ უფრო მეტად გავითარდე
-            ჩემს სფეროში და ვითვისო ახალი მიდგომა და ნებისმერი ახალი ენა
-          </p> */}
+              <div className='absolute top-[0px] left-[450px] z-10 w-[300px] h-[600px] rounded-l-full bg-[#340a83] blur-[200px]' />
             </div>
           </div>
           <MyStuck />
