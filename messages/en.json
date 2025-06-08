@@ -37,6 +37,54 @@
 
     "projectNam3": "audioPlay web",
     "projectMount3": "APR",
-    "projectInfo3": " During the first phase of the training program, I developed my first fully-functional website using only HTML, CSS, and JavaScript. I achieved a perfect score, and successfully completed the first module with top marks alongside other tasks."
+    "projectInfo3": " During the first phase of the training program, I developed my first fully-functional website using only HTML, CSS, and JavaScript. I achieved a perfect score, and successfully completed the first module with top marks alongside other tasks.",
+
+    "projectNam4": "Simple Movies web",
+    "projectMount4": "APR",
+    "projectInfo4": "I built a movies website focusing solely on the visual design as part of my training—using only HTML, CSS, and JavaScript",
+
+    "projectNam5": "Simple Portfolio web",
+    "projectMount5": "AUG",
+    "projectInfo5": "I used a toggle button that dynamically applies a .dark-mode class to the body, purely via JavaScript and CSS custom properties",
+
+    "projectNam6": "Country API web",
+    "projectMount6": "AUG",
+    "projectInfo6": "I built this site to strengthen my understanding of component-based architecture in React and to apply React Hooks correctly.",
+
+    "projectNam7": "Rick And Mort API web",
+    "projectMount7": "JUN",
+    "projectInfo7": "I developed this site to implement a debounced search experience—optimizing performance",
+
+    "projectNam8": "bank web",
+    "projectMount8": "MAY",
+    "projectInfo8": "I built this site to apply a mobile-first approach using Tailwind CSS—starting layout for phones and scaling up to larger screens.",
+
+    "projectNam9": "Weater API web",
+    "projectMount9": "APR",
+    "projectInfo9": "I developed this site while I was still learning about APIs—to practice fetching and displaying external data through HTTP requests",
+
+    "projectNam10": "GitHub API web",
+    "projectMount10": "APR",
+    "projectInfo10": "This was the first API-powered site I built.",
+
+    "projectNam11": "mini FAQ",
+    "projectMount11": "APR",
+    "projectInfo11": "This is the first website where I integrated JavaScript with HTML, demonstrating how to enhance static pages with interactive functionality.",
+
+    "projectNam12": "RockStrar web",
+    "projectMount12": "MAR",
+    "projectInfo12": "This was my first major undertaking with a design that was more complex than a simple one, and I feel I handled it very well.",
+
+    "projectNam13": "keyBoard web",
+    "projectMount13": "FEB",
+    "projectInfo13": "This is the first responsive website I built, designed to adapt seamlessly across devices using HTML, CSS, and JavaScript.",
+
+    "projectNam14": "simple grid web",
+    "projectMount14": "FEB",
+    "projectInfo14": "I built this site while learning how to use CSS Grid to structure layouts.",
+
+    "projectNam15": "sunnyside web",
+    "projectMount15": "FEB",
+    "projectInfo15": "I built this site to deepen my skills in several areas: implementing content locking, applying color differentiation across sections, and displaying pop-ups in the mobile version."
   }
 }
