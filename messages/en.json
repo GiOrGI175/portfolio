@@ -1,8 +1,13 @@
 {
   "Header": {
+    "myName": "Giorgi Nozadze/",
+
     "home": "Home",
     "projects": "Projects",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+
+    "light": "Light",
+    "dark": "Dark"
   }
 }

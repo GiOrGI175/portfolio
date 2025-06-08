@@ -2,6 +2,7 @@
 
 import * as motion from 'motion/react-client';
 import darkModeStore from '@/commons/hooks/darkModeStore';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
 
 export default function LayoutAnimation() {
   const darkMode = darkModeStore((state) => state.darkMode);
@@ -13,13 +14,12 @@ export default function LayoutAnimation() {
 
   return (
     <div className='flex justify-center items-center gap-[10px]'>
-      <span
+      <LangTranstionSpan
+        title={'Header.light'}
         className={`firaCode font-normal text-[16px] leading-[41px] ${
           darkMode ? 'text-white' : 'text-[#9911ff]'
         } duration-700`}
-      >
-        Light
-      </span>
+      />
       <button
         className={`toggle-container ${
           darkMode ? '!bg-black' : 'bg-[white]'
@@ -41,13 +41,12 @@ export default function LayoutAnimation() {
           }}
         />
       </button>
-      <span
+      <LangTranstionSpan
+        title={'Header.dark'}
         className={`firaCode font-normal text-[16px] leading-[41px] ${
           darkMode ? 'text-white' : 'text-[#9911ff]'
         } duration-700`}
-      >
-        Dark
-      </span>
+      />
     </div>
   );
 }

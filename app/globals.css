@@ -111,3 +111,7 @@ body {
 .contribution-table td[data-count='0'] {
   opacity: 0.5;
 }
+
+.loader-spinner {
+  border-top-color: transparent;
+}

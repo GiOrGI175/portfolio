@@ -10,7 +10,7 @@ export const BlurIn = ({ children }: { children: React.ReactNode }) => {
   const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
-    <motion.h2
+    <motion.div
       ref={ref}
       initial={{ filter: 'blur(20px)', opacity: 0 }}
       animate={isInView ? { filter: 'blur(0px)', opacity: 1 } : {}}
@@ -20,6 +20,6 @@ export const BlurIn = ({ children }: { children: React.ReactNode }) => {
       } duration-700`}
     >
       {children}
-    </motion.h2>
+    </motion.div>
   );
 };
