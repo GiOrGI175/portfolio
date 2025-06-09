@@ -5,6 +5,9 @@ import { blogArr } from '@/commons/services/blog';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
+import LangTransitionH3 from '@/lib/LangTransitionH3';
+import LangTranstionP from '@/lib/LangTransitionP';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
 
 const Blog = () => {
   const darkMode = darkModeStore((state) => state.darkMode);
@@ -46,13 +49,12 @@ const Blog = () => {
             stiffness: 120,
           }}
         >
-          <h3
-            className={`firaCode font-bold text-[90px] leading-[90px] relative top-[40px] pl-[90px] ${
+          <LangTransitionH3
+            title='Blog.myBlog'
+            className={`firaCode font-bold text-[90px] leading-[90px] relative top-[40px] pl-[20px] ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
             } duration-700  drop-shadow-2xl `}
-          >
-            My blog
-          </h3>
+          />
         </motion.div>
         <div className='max-w-[1280px] w-full  columns-[500px]'>
           {blogArr.map((item, index) => (
@@ -104,20 +106,18 @@ const Blog = () => {
                     stiffness: 100,
                   }}
                 >
-                  <h4
+                  <LangTransitionH3
+                    title={item.title}
                     className={`firaCode text-[30px] leading-[50px] text-center ${
                       darkMode ? 'text-white' : 'text-[#9911ff]'
                     } duration-700 `}
-                  >
-                    {item.title}
-                  </h4>
-                  <p
+                  />
+                  <LangTranstionP
+                    title={item.desc}
                     className={`firaCode text-[16px] leading-[50px] text-center ${
                       darkMode ? 'text-white' : 'text-[#9911ff]'
                     } duration-700 `}
-                  >
-                    {item.desc}
-                  </p>
+                  />
                 </motion.div>
                 <button className='w-full cursor-pointer'>
                   <span
@@ -125,7 +125,12 @@ const Blog = () => {
                       darkMode ? 'text-white' : 'text-[#9911ff]'
                     } `}
                   >
-                    Read More...
+                    <LangTranstionSpan
+                      title='Blog.readMore'
+                      className={`firaCode text-[12px] leading-[50px] text-center ${
+                        darkMode ? 'text-white' : 'text-[#9911ff]'
+                      } `}
+                    />{' '}
                   </span>
                 </button>
               </Link>

@@ -4,6 +4,7 @@ import darkModeStore from '@/commons/hooks/darkModeStore';
 import { TypingEffect } from '@/components/_atoms/loader_atoms/TypingEffect';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const divs = [5, 7, 9, 11, 12, 13, 14, 15, 16, 18];
 
@@ -35,8 +36,10 @@ const Loader = () => {
 
   const darkMode = darkModeStore((state) => state.darkMode);
 
+  const t = useTranslations();
+
   return (
-    <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-transparent'>
+    <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-transparent z-50'>
       {divs.map((item, index) => (
         <motion.div
           key={item}
@@ -63,7 +66,7 @@ const Loader = () => {
           animate={{ opacity: 0 }}
           transition={{ delay: 2.5, duration: 0.8 }}
         >
-          <TypingEffect text={'Giorgi Nozadze'} />
+          <TypingEffect text={t('Loader.myName')} />
         </motion.div>
       </motion.div>
     </div>

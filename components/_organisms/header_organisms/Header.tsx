@@ -11,6 +11,7 @@ import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
 import { useTranslations } from 'next-intl';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import LangTransitionH1 from '@/lib/LangTransitionH1';
+import { useRef } from 'react';
 
 const Header = () => {
   const pathName = usePathname() || '';
@@ -18,6 +19,12 @@ const Header = () => {
   const darkMode = darkModeStore((state) => state.darkMode);
 
   const t = useTranslations();
+
+  const contactRef = useRef<HTMLElement>(null);
+
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <motion.header

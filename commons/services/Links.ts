@@ -12,7 +12,7 @@ export const navLinks = [
     title: 'Header.blog',
   },
   {
-    link: '/contact',
+    link: '/home#contact',
     title: 'Header.contact',
   },
 ];

@@ -4,7 +4,8 @@ import darkModeStore from '@/commons/hooks/darkModeStore';
 import ContactMeForm from '@/components/_molecules/contactMe_moloecules/ContactMeForm';
 import LangTransitionH2 from '@/lib/LangTransitionH2';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 const ContactMe = () => {
   const headingRef = useRef(null);
@@ -17,8 +18,20 @@ const ContactMe = () => {
     ? 'linear-gradient(315deg, #0e0b2e 0%, #0e0910 74%)'
     : 'linear-gradient(315deg, #e0ddff 0%, #f9f8fc 74%)';
 
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#contact') {
+      document
+        .getElementById('contact')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [pathname]);
+
   return (
     <motion.div
+      id='contact'
       className='hero_gradient w-full flex justify-center'
       initial={{
         opacity: 0,

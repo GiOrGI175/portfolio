@@ -4,6 +4,10 @@
 @import 'normalize.css';
 /* css reset end */
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 body {
   overflow-x: hidden;
 }
