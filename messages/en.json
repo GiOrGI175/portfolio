@@ -85,6 +85,8 @@
 
     "projectName15": "sunnyside web",
     "projectMount15": "FEB",
-    "projectInfo15": "I built this site to deepen my skills in several areas: implementing content locking, applying color differentiation across sections, and displaying pop-ups in the mobile version."
+    "projectInfo15": "I built this site to deepen my skills in several areas: implementing content locking, applying color differentiation across sections, and displaying pop-ups in the mobile version.",
+
+    "seeMore": " See More"
   }
 }

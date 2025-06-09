@@ -2,6 +2,8 @@
 
 import darkModeStore from '@/commons/hooks/darkModeStore';
 import ProjectsArry from '@/components/_atoms/aboutMe_atoms/ProjectsArry';
+import LangTransitionH2 from '@/lib/LangTransitionH2';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import { useRef } from 'react';
@@ -26,13 +28,12 @@ const ProjectSection = () => {
             stiffness: 120,
           }}
         >
-          <h2
+          <LangTransitionH2
+            title='About.myProjects'
             className={`firaCode font-bold text-[90px] leading-[90px] ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
             } duration-700 drop-shadow-2xl `}
-          >
-            My Projects
-          </h2>
+          />
         </motion.div>
 
         <div className='w-full'>
@@ -50,13 +51,12 @@ const ProjectSection = () => {
             }}
           >
             <Link href='/projects'>
-              <span
+              <LangTranstionSpan
+                title='About.seeMore'
                 className={`firaCode text-[20px] leading-[20px] ${
                   darkMode ? 'text-white' : 'text-[#9911ff]'
                 } duration-700`}
-              >
-                See More
-              </span>
+              />
             </Link>
           </motion.div>
         </div>
