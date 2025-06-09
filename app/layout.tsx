@@ -13,8 +13,10 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        <Footer />
+        <NextIntlClientProvider>
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

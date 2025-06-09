@@ -2,6 +2,7 @@
 
 import darkModeStore from '@/commons/hooks/darkModeStore';
 import ContactMeForm from '@/components/_molecules/contactMe_moloecules/ContactMeForm';
+import LangTransitionH2 from '@/lib/LangTransitionH2';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -50,13 +51,12 @@ const ContactMe = () => {
                 stiffness: 120,
               }}
             >
-              <h3
+              <LangTransitionH2
+                title='Contact.contactMe'
                 className={`firaCode font-bold text-[90px] leading-[90px] ${
                   darkMode ? 'text-white' : 'text-[#9911ff]'
                 } drop-shadow-2xl`}
-              >
-                Contact Me
-              </h3>
+              />
             </motion.div>
             <motion.div
               className='w-full flex justify-center'

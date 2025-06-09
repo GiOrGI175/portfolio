@@ -6,10 +6,18 @@ import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { itemVariants } from '@/components/_atoms/aboutMe_atoms/FrontEndStuck';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
+import LangTransitionH1 from '@/lib/LangTransitionH1';
+import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 const Footer = () => {
   const headingRef = useRef(null);
   const isInView = useInView(headingRef, { once: false, margin: '-100px' });
+
+  const locale = useLocale();
+
+  const t = useTranslations();
 
   return (
     <footer
@@ -39,9 +47,10 @@ const Footer = () => {
                 stiffness: 80,
               }}
             >
-              <span className='firaCode font-normal text-[100px] leading-[41px] text-white'>
-                Check me out
-              </span>
+              <LangTranstionSpan
+                title='Footer.CheckMe'
+                className='firaCode font-normal text-[100px] leading-[41px] text-white'
+              />
             </motion.div>
             <div className='flex gap-[50px]'>
               {soclialLinks.map((item, index) => (
@@ -78,10 +87,10 @@ const Footer = () => {
               <span className='firaCode font-normal text-[25px] leading-[41px]  text-white'>
                 &lt;
               </span>
-              <h1 className='firaCode font-normal text-[25px] leading-[41px] text-white'>
-                Giorgi Nozadze
-              </h1>
-
+              <LangTransitionH1
+                title='Footer.myName'
+                className='firaCode font-normal text-[25px] leading-[41px] text-white'
+              />
               <span className='firaCode font-normal text-[25px] leading-[41px]  text-white'>
                 &gt;
               </span>
@@ -92,7 +101,7 @@ const Footer = () => {
                   <li key={item.title}>
                     <Link href={item.link}>
                       <span className='firaCode font-normal text-[25px] leading-[41px] text-white'>
-                        {item.title}
+                        {t(item.title)}
                       </span>
                     </Link>
                   </li>

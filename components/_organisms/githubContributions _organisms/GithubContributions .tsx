@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import './contributions.css';
 import darkModeStore from '@/commons/hooks/darkModeStore';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
 
 type ContributionDay = {
   date: string;
@@ -76,7 +77,11 @@ export default function GithubContributions() {
     <div className='flex flex-col '>
       <div className='flex justify-between'>
         <div className='text-white text-lg font-semibold mb-4 firaCode'>
-          Total Contributions in {year}: {getTotalContributions()}
+          <LangTranstionSpan
+            title='GitHub.Total'
+            className='text-white text-lg font-semibold mb-4 firaCode'
+          />{' '}
+          {year}: {getTotalContributions()}
         </div>
         <div
           className={`${
@@ -84,7 +89,10 @@ export default function GithubContributions() {
           } duration-700  px-[10px] w-fit mb-[20px] rounded-2xl self-end`}
         >
           <label htmlFor='year' className='text-white firaCode'>
-            Year:{' '}
+            <LangTranstionSpan
+              title='GitHub.Year'
+              className='text-white firaCode'
+            />{' '}
           </label>
           <select
             id='year'
@@ -139,17 +147,19 @@ export default function GithubContributions() {
             darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'
           } duration-700   px-[10px] w-fit pt-[15px] rounded-2xl self-end flex justify-between items-center gap-[5px]`}
         >
-          <span className='firaCode text-white text-[16px] font-medium pr-[5px]'>
-            less
-          </span>
+          <LangTranstionSpan
+            title='GitHub.less'
+            className='firaCode text-white text-[16px] font-medium pr-[5px]'
+          />
           <div className='w-[15px] h-[15px] rounded-[3px] bg-[#1b1b1f] ' />
           <div className='w-[15px] h-[15px] rounded-[3px] bg-[#5f2b7f] ' />
           <div className='w-[15px] h-[15px] rounded-[3px] bg-[#8738b5] ' />
           <div className='w-[15px] h-[15px] rounded-[3px] bg-[#a341df] ' />
           <div className='w-[15px] h-[15px] rounded-[3px] bg-[#da57ff] ' />
-          <span className='firaCode text-white text-[16px] font-medium pl-[5px]'>
-            more
-          </span>
+          <LangTranstionSpan
+            title='GitHub.more'
+            className='firaCode text-white text-[16px] font-medium pl-[5px]'
+          />
         </div>
       </div>
     </div>

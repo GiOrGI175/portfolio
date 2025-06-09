@@ -88,5 +88,47 @@
     "projectInfo15": "I built this site to deepen my skills in several areas: implementing content locking, applying color differentiation across sections, and displaying pop-ups in the mobile version.",
 
     "seeMore": " See More"
+  },
+  "GitHub": {
+    "contributions": "GitHub contributions",
+    "Total": "Total Contributions in",
+    "Year": "Year:",
+    "less": "less",
+    "more": "more"
+  },
+  "Blog": {
+    "myBlog": "My blog",
+
+    "blogTitle1": "How to Integrate AdminJS with NestJS and Mongoose (when docs fail)",
+    "blogDesc1": "At work, I faced a problem I had to solve by myself. I was the first developer using Node.js in the company, and the client wanted an Admin Panel built with AdminJS.",
+
+    "blogTitle2": "How I Built a Custom GitHub Contributions Section for My Portfolio with NestJS",
+    "blogDesc2": "When I wanted to add my GitHub contributions to my portfolio, I had to search through GitHub and build my own design because the libraries I found were not very nice. I looked at some code written in vanilla JavaScript, and now I want to share with you how it works in a NestJS project.",
+
+    "blogTitle3": "How to Add Google Login to Your Web App — A Beginner’s Guide",
+    "blogDesc3": "'Hello and welcome! In this blog, I will share my experience of adding Google authentication in a NestJS project.If you are a beginner and want to learn how to allow users to log in with their Google account, this guide is for you.",
+
+    "blogTitle4": "How to Send Emails in NestJS using Gmail SMTP — A Beginner’s Guide",
+    "blogDesc4": "Sending emails is a basic but important part of many web applications. In this tutorial, I will show you how to send emails using NestJS and Gmail SMTP. This guide is perfect for beginners and easy to follow step-by-step. I recently implemented it in one of my projects and it worked great.",
+
+    "readMore": "Read More..."
+  },
+  "Contact": {
+    "contactMe": "Contact Me",
+
+    "fullName": "full name *",
+    "fullNameHolder": "Enter your full name",
+
+    "Email": "Email *",
+    "EmailHolder": "Enter your email",
+
+    "Message": "Message *",
+    "MessageHolder": "Enter your Message",
+
+    "submit": "submit"
+  },
+  "Footer": {
+    "CheckMe": "Check me out",
+    "myName": "Giorgi Nozadze/"
   }
 }
