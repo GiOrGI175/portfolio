@@ -6,12 +6,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { projects } from '@/commons/services/projects';
 import darkModeStore from '@/commons/hooks/darkModeStore';
+import { useTranslations } from 'next-intl';
 
 const ProjectItem = ({ item, index }: { item: any; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: '-100px' });
 
   const darkMode = darkModeStore((state) => state.darkMode);
+
+  const t = useTranslations();
 
   return (
     <div className='flex flex-col overflow-hidden' ref={ref}>
@@ -43,7 +46,7 @@ const ProjectItem = ({ item, index }: { item: any; index: number }) => {
               stiffness: 120,
             }}
           >
-            {item.name} {item.mount}-{item.year}
+            {t(item.name)} {t(item.mount)}-{item.year}
           </motion.span>
 
           <motion.div
