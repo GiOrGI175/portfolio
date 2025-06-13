@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import GithubContributions from './GithubContributions ';
 import { motion, useInView } from 'framer-motion';
 import darkModeStore from '@/commons/hooks/darkModeStore';
+import LangTransitionH3 from '@/lib/LangTransitionH3';
 
 const GithubSection = () => {
   const headingRef = useRef(null);
@@ -44,13 +45,12 @@ const GithubSection = () => {
             stiffness: 120,
           }}
         >
-          <h3
+          <LangTransitionH3
+            title='GitHub.contributions'
             className={`firaCode font-bold text-[90px] leading-[90px]  ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
             } duration-700 drop-shadow-2xl `}
-          >
-            GitHub contributions
-          </h3>
+          />
         </motion.div>
         <motion.div
           initial={{ x: '-100vw', y: '100vh' }}

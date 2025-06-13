@@ -6,6 +6,7 @@ import React, { useRef } from 'react';
 import { itemVariants } from './FrontEndStuck';
 import { motion, useInView } from 'framer-motion';
 import darkModeStore from '@/commons/hooks/darkModeStore';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
 
 const BackEndStuck = () => {
   const headingRef = useRef(null);
@@ -15,13 +16,12 @@ const BackEndStuck = () => {
 
   return (
     <div ref={headingRef} className='flex justify-between'>
-      <span
+      <LangTranstionSpan
+        title='About.BACKEND'
         className={` pl-[20px] firaCode font-normal text-[50px] leading-[41px] ${
           darkMode ? 'text-white' : 'text-[#9911ff]'
         } duration-700`}
-      >
-        BACKEND:
-      </span>
+      />
       <div className='max-w-[800px] w-full flex flex-wrap gap-[30px]'>
         {backEndStuck.map((item, index) => (
           <motion.div

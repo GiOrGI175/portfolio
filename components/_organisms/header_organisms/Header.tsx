@@ -7,11 +7,24 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import darkModeStore from '@/commons/hooks/darkModeStore';
+import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
+import { useTranslations } from 'next-intl';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
+import LangTransitionH1 from '@/lib/LangTransitionH1';
+import { useRef } from 'react';
 
 const Header = () => {
   const pathName = usePathname() || '';
 
   const darkMode = darkModeStore((state) => state.darkMode);
+
+  const t = useTranslations();
+
+  const contactRef = useRef<HTMLElement>(null);
+
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <motion.header
@@ -46,14 +59,12 @@ const Header = () => {
           >
             &lt;
           </span>
-          <h1
+          <LangTransitionH1
+            title='Header.myName'
             className={`firaCode font-normal text-[25px] leading-[41px] ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
             } duration-700`}
-          >
-            Giorgi Nozadze
-          </h1>
-
+          />
           <span
             className={`firaCode font-normal text-[25px] leading-[41px] ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
@@ -77,13 +88,12 @@ const Header = () => {
                   } duration-500 flex items-center `}
                 >
                   <Link href={item.link}>
-                    <span
+                    <LangTranstionSpan
+                      title={item.title}
                       className={`firaCode font-normal text-[25px] leading-[41px] ${
                         darkMode ? 'text-white' : 'text-[#9911ff]'
                       } duration-700`}
-                    >
-                      {item.title}
-                    </span>
+                    />
                   </Link>
                 </motion.li>
               );
@@ -96,7 +106,7 @@ const Header = () => {
             <LayoutAnimation />
           </>
           <>
-            <ContactMeBtn />
+            <LangBtn />
           </>
         </div>
       </motion.div>

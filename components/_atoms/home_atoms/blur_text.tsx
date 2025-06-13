@@ -10,16 +10,14 @@ export const BlurIn = ({ children }: { children: React.ReactNode }) => {
   const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
-    <motion.h2
+    <motion.div
       ref={ref}
       initial={{ filter: 'blur(20px)', opacity: 0 }}
       animate={isInView ? { filter: 'blur(0px)', opacity: 1 } : {}}
       transition={{ duration: 1.2 }}
-      className={`max-w-[200px] firaCode font-bold text-[90px] leading-[130px] ${
-        darkMode ? 'text-white' : 'text-[#9911ff]'
-      } duration-700`}
+      className='max-w-[200px]'
     >
       {children}
-    </motion.h2>
+    </motion.div>
   );
 };

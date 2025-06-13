@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import darkModeStore from '@/commons/hooks/darkModeStore';
+import LangTranstionSpan from '@/lib/LangTranstionSpan';
 
 export const itemVariants = {
   hidden: { y: '100vh', opacity: 0 },
@@ -29,13 +30,12 @@ const FrontEndStuck = () => {
 
   return (
     <div ref={headingRef} className='flex justify-between w-full'>
-      <span
+      <LangTranstionSpan
+        title='About.FRONTEND'
         className={`pl-[20px] firaCode font-normal text-[50px] leading-[41px] ${
           darkMode ? 'text-white' : 'text-[#9911ff]'
         } duration-700`}
-      >
-        FRONTEND:
-      </span>
+      />
 
       <div className='max-w-[800px] w-full flex flex-wrap gap-[30px]'>
         {frontEndStuck.map((item, index) => (

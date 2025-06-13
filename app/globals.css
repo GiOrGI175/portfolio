@@ -4,6 +4,10 @@
 @import 'normalize.css';
 /* css reset end */
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -110,4 +114,35 @@ body {
 
 .contribution-table td[data-count='0'] {
   opacity: 0.5;
+}
+
+.loader-spinner {
+  border-top-color: transparent;
+}
+
+/* Scrollbar სტილები */
+.scroll-custom {
+  /* Firefox-თვის */
+  scrollbar-width: thin;
+  scrollbar-color: #9911ff black;
+}
+
+/* Chrome, Edge, Safari */
+.scroll-custom::-webkit-scrollbar {
+  width: 8px;
+  background: black; /* track background */
+}
+
+.scroll-custom::-webkit-scrollbar-track {
+  background: black;
+}
+
+.scroll-custom::-webkit-scrollbar-thumb {
+  background-color: #9911ff;
+  border: 2px solid #9911ff; /* იგივე ფერის ბორდერი */
+  border-radius: 4px;
+}
+
+.scroll-custom::-webkit-scrollbar-thumb:hover {
+  background-color: #b24cff; /* შედარებით ღია ვიოლეტი */
 }
