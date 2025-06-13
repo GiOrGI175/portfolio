@@ -15,6 +15,7 @@ import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
+import Image from 'next/image';
 
 export default function HomePage() {
   const [loader, setLoader] = useState(true);
@@ -55,7 +56,7 @@ export default function HomePage() {
         <Header />
         <div className='max-w-[1440px] w-full flex flex-col items-center'>
           <motion.div
-            className='max-w-[1280px] h-[600px] w-full mb-[220px] flex items-center border-[1px] rounded-2xl border-[#9911ff]'
+            className='max-w-[1280px] h-[600px] w-full  px-[50px] mb-[220px] flex items-center justify-between border-[1px] rounded-2xl border-[#9911ff] '
             initial={{
               border: '1px solid transparent',
               boxShadow: '0 0 0px #00000000',
@@ -71,7 +72,7 @@ export default function HomePage() {
               boxShadow: { delay: 2, duration: 1.5, ease: 'easeInOut' },
             }}
           >
-            <div className='flex flex-col gap-[20px] pl-[50px]'>
+            <div className='flex flex-col gap-[20px]'>
               <LangTranstionP
                 title='Home.dev'
                 className={`firaCode font-normal text-[20px] leading-[41px] ${
@@ -103,6 +104,25 @@ export default function HomePage() {
                 </AnimatePresence>
               </div>
             </div>
+            <motion.div
+              transition={{
+                duration: 1.5,
+                ease: 'easeInOut',
+                border: { duration: 1.5, ease: 'easeInOut' },
+                boxShadow: { delay: 2, duration: 1.5, ease: 'easeInOut' },
+              }}
+            >
+              <Image
+                src={
+                  darkMode
+                    ? '/assets/img/me_avatar.png'
+                    : '/assets/img/me_avatar_light.png'
+                }
+                width={500}
+                height={500}
+                alt='avatar'
+              />
+            </motion.div>
           </motion.div>
         </div>
         {loader && <Loader />}
