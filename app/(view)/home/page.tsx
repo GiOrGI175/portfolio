@@ -54,7 +54,7 @@ export default function HomePage() {
         transition={{ duration: 0.7 }}
       >
         <Header />
-        <div className='max-w-[1440px] w-full flex flex-col items-center'>
+        <div className='max-w-[1440px] w-full flex flex-col items-center px-[20px]'>
           <motion.div
             className='max-w-[1280px] h-[600px] w-full  px-[50px] mb-[220px] flex items-center justify-between border-[1px] rounded-2xl border-[#9911ff] '
             initial={{

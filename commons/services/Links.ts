@@ -1,3 +1,5 @@
+import { title } from 'process';
+
 export const navLinks = [
   {
     link: '/home',
@@ -21,14 +23,17 @@ export const soclialLinks = [
   {
     link: '',
     img: '/assets/svg/icons8-linkedin.svg',
+    title: 'Linked-in',
   },
 
   {
     link: '',
     img: '/assets/svg/icons8-github.svg',
+    title: 'Github',
   },
   {
     link: '',
     img: '/assets/svg/icons8-discord.svg',
+    title: 'Discord',
   },
 ];

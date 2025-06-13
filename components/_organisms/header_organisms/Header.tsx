@@ -12,6 +12,8 @@ import { useTranslations } from 'next-intl';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import LangTransitionH1 from '@/lib/LangTransitionH1';
 import { useRef } from 'react';
+import HamburgerButton from '@/components/_atoms/header_atoms/HamburgerButton';
+import NavbarMobile from '@/components/_molecules/header_molecules/NavbarMobile';
 
 const Header = () => {
   const pathName = usePathname() || '';
@@ -32,7 +34,7 @@ const Header = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 2 }}
-      className=' w-full p-[20px] flex justify-center items-center backdrop-blur-[20%]'
+      className=' w-full p-[20px] flex justify-center items-center backdrop-blur-[20%] relative'
     >
       <motion.div
         className='back_drop max-w-[1280px] w-full h-[70px] rounded-[50px] px-[20px] flex justify-between items-center drop-shadow-lg'
@@ -73,7 +75,7 @@ const Header = () => {
             &gt;
           </span>
         </div>
-        <nav className='flex justify-center '>
+        <nav className='hidden xl:flex justify-center '>
           <ul className='flex gap-[40px] '>
             {navLinks.map((item) => {
               const isActive = pathName.startsWith(item.link);
@@ -105,9 +107,13 @@ const Header = () => {
           <>
             <LayoutAnimation />
           </>
-          <>
+          <div className='flex'>
             <LangBtn />
-          </>
+          </div>
+          <div className='flex items-center xl:hidden'>
+            <HamburgerButton />
+          </div>
+          <NavbarMobile />
         </div>
       </motion.div>
     </motion.header>
