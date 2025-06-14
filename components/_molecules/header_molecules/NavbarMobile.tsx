@@ -10,11 +10,14 @@ import { navLinks, soclialLinks } from '@/commons/services/Links';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import Image from 'next/image';
 import { li } from 'motion/react-client';
+import LayoutAnimation from '@/components/_atoms/header_atoms/DarkModeBtn';
+import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
 
 export default function NavbarMobile() {
   const pathName = usePathname() || '';
   const darkMode = darkModeStore((s) => s.darkMode);
   const isOpen = navBarStore((s) => s.isOpen);
+  const setIsOpen = navBarStore((state) => state.setIsOpen);
 
   const bgColor = darkMode ? '#130f40' : '#f0eaff';
   const bgImage = darkMode
@@ -51,6 +54,10 @@ export default function NavbarMobile() {
             borderBottomLeftRadius: { duration: 0.8, ease: 'easeInOut' },
           }}
         >
+          <div className=' flex gap-[20px] absolute top-[40px]'>
+            <LayoutAnimation />
+            <LangBtn />
+          </div>
           <ul className='flex flex-col gap-8'>
             <LangTranstionSpan
               title='Header.MENU'
@@ -66,6 +73,7 @@ export default function NavbarMobile() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: 'spring', stiffness: 300 }}
+                  onClick={() => setIsOpen(false)}
                   className={`border-b-2 w-fit ${
                     isActive ? 'border-[#9911ff]' : 'border-transparent'
                   } duration-300`}
@@ -91,9 +99,8 @@ export default function NavbarMobile() {
               SOCIAL
             </span>
             {soclialLinks.map((item, index) => (
-              <li className='flex items-center'>
+              <li key={item.img} className='flex items-center'>
                 <motion.div
-                  key={item.img}
                   className='w-[40px] h-[40px] rounded-full flex justify-center items-center bg-[white] cursor-pointer'
                   custom={index}
                   initial='hidden'
