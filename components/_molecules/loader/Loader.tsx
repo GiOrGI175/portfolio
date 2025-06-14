@@ -56,7 +56,7 @@ const Loader = () => {
       ))}
 
       <motion.div
-        className='absolute w-full top-[40%]  text-white text-6xl md:text-9xl font-bold'
+        className='absolute w-full top-[40%]  text-white font-bold'
         initial={{ y: 0 }}
         animate={{ y: 20 }}
         transition={{ yoyo: Infinity, duration: 1, ease: 'easeInOut' }}

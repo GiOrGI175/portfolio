@@ -1,4 +1,3 @@
-// components/NavbarMobile.tsx
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -54,14 +53,14 @@ export default function NavbarMobile() {
             borderBottomLeftRadius: { duration: 0.8, ease: 'easeInOut' },
           }}
         >
-          <div className=' flex gap-[20px] absolute top-[40px]'>
+          <div className=' flex gap-[10px] absolute top-[40px] left-[35]'>
             <LayoutAnimation />
             <LangBtn />
           </div>
-          <ul className='flex flex-col gap-8'>
+          <ul className='flex flex-col gap-[20px] sm:gap-8'>
             <LangTranstionSpan
               title='Header.MENU'
-              className={`firaCode text-2xl leading-snug ${
+              className={`firaCode text-[30px] leading-snug ${
                 darkMode ? 'text-white' : 'text-[#9911ff]'
               } duration-500`}
             />
@@ -90,14 +89,13 @@ export default function NavbarMobile() {
               );
             })}
           </ul>
-          <ul className='flex flex-col gap-[50px]'>
-            <span
-              className={`firaCode text-2xl leading-snug ${
+          <ul className='flex flex-col gap-[20px] sm:gap-[50px]'>
+            <LangTranstionSpan
+              title='Header.SOCIAL'
+              className={`firaCode text-[30px] leading-snug ${
                 darkMode ? 'text-white' : 'text-[#9911ff]'
               } duration-500`}
-            >
-              SOCIAL
-            </span>
+            />
             {soclialLinks.map((item, index) => (
               <li key={item.img} className='flex items-center'>
                 <motion.div

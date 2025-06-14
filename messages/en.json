@@ -10,7 +10,8 @@
     "light": "Light",
     "dark": "Dark",
 
-    "MENU": "MENU"
+    "MENU": "MENU",
+    "SOCIAL": "SOCIAL"
   },
   "Home": {
     "dev": "FULL-STACK WEB DEVELOPER",
