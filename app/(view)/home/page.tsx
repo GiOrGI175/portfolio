@@ -1,7 +1,6 @@
 'use client';
 
 import darkModeStore from '@/commons/hooks/darkModeStore';
-import { BlurIn } from '@/components/_atoms/home_atoms/blur_text';
 import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
 import Loader from '@/components/_molecules/loader/Loader';
 import AboutSection from '@/components/_organisms/aboutMe_organisms/AboutSection';
@@ -16,6 +15,7 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
+import BlurIn from '@/components/_atoms/home_atoms/blur_text';
 
 export default function HomePage() {
   const [loader, setLoader] = useState(true);
@@ -80,14 +80,12 @@ export default function HomePage() {
                 } duration-700  opacity-50 `}
               />
               {/* <div className='lg:max-w-[200px]'> */}
-              {/* <BlurIn> */}
-              <LangTranstionSpan
+              <BlurIn
                 title={'Home.myName'}
-                className={` w-full firaCode font-bold text-[90px] leading-[130px] text-center ${
+                className={`w-full lg:max-w-[200px] firaCode font-bold text-[90px] leading-[130px] text-center ${
                   darkMode ? 'text-white' : 'text-[#9911ff]'
                 } duration-700`}
               />
-              {/* </BlurIn> */}
               {/* </div> */}
               <div className='flex items-center h-[130px] max-w-[450px] w-full'>
                 <div className='w-[5px] h-full bg-white' />
