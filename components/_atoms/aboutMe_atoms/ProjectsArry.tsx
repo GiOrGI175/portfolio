@@ -48,7 +48,7 @@ const ProjectsArry = () => {
                 className='flex flex-col items-center'
               >
                 <motion.span
-                  className={`firaCode text-center lg text-[33px] xl:text-[40px] leading-[50px] ${
+                  className={`firaCode text-center text-[33px] xl:text-[40px] leading-[50px] ${
                     darkMode ? 'text-white' : 'text-[#9911ff]'
                   } duration-700 mb-[30px] lg:ml-[50px]`}
                   initial={{
