@@ -30,7 +30,7 @@ const ProjectSection = () => {
         >
           <LangTransitionH2
             title='About.myProjects'
-            className={`firaCode font-bold text-[90px] leading-[90px] ${
+            className={`firaCode font-bold text-center text-[50px] sm:text-[90px] leading-[90px] ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
             } duration-700 drop-shadow-2xl `}
           />
