@@ -29,15 +29,18 @@ const FrontEndStuck = () => {
   const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
-    <div ref={headingRef} className='flex justify-between w-full'>
+    <div
+      ref={headingRef}
+      className='flex flex-col lg:flex-row justify-between items-center lg:items-start w-full '
+    >
       <LangTranstionSpan
         title='About.FRONTEND'
-        className={`pl-[20px] firaCode font-normal text-[50px] leading-[41px] ${
+        className={`lg:pl-[20px] firaCode font-normal text-[50px] leading-[41px] ${
           darkMode ? 'text-white' : 'text-[#9911ff]'
         } duration-700`}
       />
 
-      <div className='max-w-[800px] w-full flex flex-wrap gap-[30px]'>
+      <div className='max-w-[800px] w-full flex flex-wrap gap-[30px] mt-[30px] lg:mt-[0px]'>
         {frontEndStuck.map((item, index) => (
           <motion.div
             key={`${item.icon}+${item.language}`}

@@ -15,18 +15,21 @@ const ToolsStuck = () => {
   const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
-    <div ref={headingRef} className='flex justify-between'>
+    <div
+      ref={headingRef}
+      className='flex flex-col lg:flex-row justify-between items-center lg:items-start w-full '
+    >
       <LangTranstionSpan
         title='About.TOOLS'
         className={`pl-[20px] firaCode font-normal text-[50px] leading-[41px] ${
           darkMode ? 'text-white' : 'text-[#9911ff]'
         } duration-700`}
       />
-      <div className='max-w-[800px] w-full flex flex-wrap gap-[30px]'>
+      <div className='max-w-[800px] w-full flex flex-wrap gap-[30px] mt-[30px] lg:mt-[0px]'>
         {tools.map((item, index) => (
           <motion.div
             key={`${item.icon}+${item.tool}`}
-            className='flex items-center '
+            className='flex items-center'
             custom={index}
             variants={itemVariants}
             initial='hidden'
