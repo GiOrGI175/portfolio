@@ -56,7 +56,7 @@ export default function HomePage() {
         <Header />
         <div className='max-w-[1440px] w-full flex flex-col items-center  px-[20px] relative z-30'>
           <motion.div
-            className='max-w-[1280px] lg:h-[600px] w-full py-[30px] lg:py-[0px] px-[12px] sm:px-[50px] mb-[220px] flex flex-col lg:flex-row items-center justify-between border-[1px] rounded-2xl border-[#9911ff] '
+            className='max-w-[1280px] lg:h-[600px] w-full py-[30px] lg:py-[0px] px-[12px] sm:px-[50px] mb-[100px] lg:mb-[220px] flex flex-col lg:flex-row items-center justify-between border-[1px] rounded-2xl border-[#9911ff] '
             initial={{
               border: '1px solid transparent',
               boxShadow: '0 0 0px #00000000',
@@ -137,8 +137,8 @@ export default function HomePage() {
         </div>
         {loader && <Loader />}
       </motion.div>
-      {/* <AboutSection />
-      <GithubSection />
+      <AboutSection />
+      {/* <GithubSection />
       <BlogSection />
       <ContactMe /> */}
     </>
