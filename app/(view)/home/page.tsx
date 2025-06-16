@@ -86,7 +86,11 @@ export default function HomePage() {
                 } duration-700`}
               />
               <div className='hidden sm:flex items-center h-[130px] max-w-[450px] w-full'>
-                <div className='w-[5px] h-full bg-white' />
+                <div
+                  className={`w-[5px] h-full  ${
+                    darkMode ? 'bg-white' : 'bg-[#9911ff]'
+                  } duration-700`}
+                />
                 <AnimatePresence mode='wait'>
                   <motion.div
                     key={locale}
@@ -120,7 +124,11 @@ export default function HomePage() {
               />
             </motion.div>
             <div className='flex sm:hidden items-center h-[130px] max-w-[450px] w-full mt-[24px]'>
-              <div className='w-[5px] h-full bg-white' />
+              <div
+                className={`w-[5px] h-full ${
+                  darkMode ? 'bg-white' : 'bg-[#9911ff]'
+                } duration-700`}
+              />
               <AnimatePresence mode='wait'>
                 <motion.div
                   key={locale}

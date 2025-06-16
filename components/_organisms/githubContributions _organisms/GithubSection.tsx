@@ -19,7 +19,7 @@ const GithubSection = () => {
 
   return (
     <motion.div
-      className='hero_gradient w-full h-[1000px] flex justify-center  items-center overflow-hidden'
+      className='hero_gradient w-full sm:h-[1000px] py-[50px] sm:py-[0px] px-[20px] flex justify-center  items-center overflow-hidden'
       initial={{
         opacity: 0,
       }}
@@ -32,7 +32,7 @@ const GithubSection = () => {
     >
       <div
         ref={headingRef}
-        className='max-w-[1440px] w-full flex flex-col items-center py-[120px]'
+        className='max-w-[1440px] w-full flex flex-col items-center  md:py-[120px]'
       >
         <motion.div
           className=' mb-[100px]'
@@ -47,7 +47,7 @@ const GithubSection = () => {
         >
           <LangTransitionH3
             title='GitHub.contributions'
-            className={`firaCode font-bold text-[90px] leading-[90px]  ${
+            className={`firaCode font-bold text-center text-[40px] sm:text-[50px] md:text-[90px] leading-[60px] sm:leading-[90px]  ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
             } duration-700 drop-shadow-2xl `}
           />

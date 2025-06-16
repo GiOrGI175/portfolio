@@ -75,24 +75,43 @@ export default function GithubContributions() {
 
   return (
     <div className='flex flex-col w-full items-start max-w-[1200px]'>
-      <div className='flex justify-between w-full'>
-        <div className='text-white text-lg font-semibold mb-4 firaCode'>
+      <div className='flex justify-between items-center w-full'>
+        <div
+          className={`hidden sm:flex text-lg font-semibold mb-4 firaCode ${
+            darkMode ? 'text-white' : 'text-[#9911ff]'
+          } duration-700`}
+        >
           <LangTranstionSpan
             title='GitHub.Total'
-            className='text-white text-lg font-semibold mb-4 firaCode'
-          />{' '}
+            className={` text-lg font-semibold mb-4 firaCode ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700`}
+          />
           {year}: {getTotalContributions()}
+        </div>
+        <div
+          className={`flex sm:hidden text-lg font-semibold mb-4 firaCode ${
+            darkMode ? 'text-white' : 'text-[#9911ff]'
+          } duration-700`}
+        >
+          <LangTranstionSpan
+            title='GitHub.Contributions'
+            className={` text-lg font-semibold mb-4 firaCode ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700`}
+          />
+          : {getTotalContributions()}
         </div>
         <div
           className={`${
             darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'
-          } duration-700  px-[10px] w-fit mb-[20px] rounded-2xl self-end overflow-x-scroll`}
+          } duration-700 px-[5px]  sm:px-[10px] w-fit mb-[20px] rounded-2xl self-end overflow-hidden flex items-center`}
         >
           <label htmlFor='year' className='text-white firaCode '>
             <LangTranstionSpan
               title='GitHub.Year'
               className='text-white firaCode'
-            />{' '}
+            />
           </label>
           <select
             id='year'
