@@ -19,10 +19,10 @@ const Projects = () => {
   const t = useTranslations();
 
   return (
-    <div className=' max-w-[1280px] w-full py-[70px] flex flex-col '>
+    <div className=' max-w-[1280px] w-full sm:py-[70px] px-[20px] flex flex-col '>
       <div ref={headingRef} className=' max-w-[1280px] w-full flex flex-col '>
         <motion.div
-          className='px-[50px] py-[50px] mb-[50px] flex justify-center'
+          className='px-[50px] py-[30px] sm:py-[50px] sm:mb-[50px] flex justify-center'
           initial={{ x: '100vw', y: '-100vh' }}
           animate={isInView ? { x: 0, y: 0 } : undefined}
           transition={{
@@ -34,7 +34,7 @@ const Projects = () => {
         >
           <LangTransitionH2
             title='About.myProjects'
-            className={`firaCode font-bold text-[90px] leading-[90px] ${
+            className={`firaCode font-bold text-center text-[50px] sm:text-[90px] leading-[90px] ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
             } duration-700  drop-shadow-2xl `}
           />
