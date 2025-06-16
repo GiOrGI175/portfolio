@@ -11,12 +11,14 @@ import Image from 'next/image';
 import { li } from 'motion/react-client';
 import LayoutAnimation from '@/components/_atoms/header_atoms/DarkModeBtn';
 import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
+import overLayStore from '@/commons/hooks/overLayStore';
 
 export default function NavbarMobile() {
   const pathName = usePathname() || '';
   const darkMode = darkModeStore((s) => s.darkMode);
   const isOpen = navBarStore((s) => s.isOpen);
   const setIsOpen = navBarStore((state) => state.setIsOpen);
+  const setOverLay = overLayStore((state) => state.setOverLay);
 
   const bgColor = darkMode ? '#130f40' : '#f0eaff';
   const bgImage = darkMode
@@ -53,7 +55,7 @@ export default function NavbarMobile() {
             borderBottomLeftRadius: { duration: 0.8, ease: 'easeInOut' },
           }}
         >
-          <div className=' flex gap-[10px] absolute top-[40px] left-[35]'>
+          <div className=' flex md:hidden gap-[10px] absolute top-[40px] left-[35]'>
             <LayoutAnimation />
             <LangBtn />
           </div>
@@ -72,7 +74,10 @@ export default function NavbarMobile() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setOverLay(false);
+                  }}
                   className={`border-b-2 w-fit ${
                     isActive ? 'border-[#9911ff]' : 'border-transparent'
                   } duration-300`}
