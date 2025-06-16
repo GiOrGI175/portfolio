@@ -22,7 +22,7 @@ const Footer = () => {
   return (
     <footer
       ref={headingRef}
-      className='relative hero_gradient w-full flex justify-center h-[800px]'
+      className='relative hero_gradient w-full flex justify-center h-[800px] px-[20px]'
     >
       <video
         className='absolute top-0 left-0 w-full h-full object-cover z-0'
@@ -36,7 +36,7 @@ const Footer = () => {
 
       <div className='max-w-[1440px] w-full flex flex-col items-center relative z-10'>
         <div className='max-w-[1280px] w-full h-full pb-[70px] mt-[120px] flex flex-col justify-between'>
-          <div className='w-full flex justify-between'>
+          <div className='w-full flex flex-col sm:flex-row gap-[40px] sm:gap-[0px] items-center justify-between'>
             <motion.div
               initial={{ y: '100vw' }}
               animate={isInView ? { y: 0 } : {}}
@@ -46,10 +46,11 @@ const Footer = () => {
                 type: 'spring',
                 stiffness: 80,
               }}
+              className='flex'
             >
               <LangTranstionSpan
                 title='Footer.CheckMe'
-                className='firaCode font-normal text-[100px] leading-[41px] text-white'
+                className='firaCode font-normal w-full text-center text-[40px] md:text-[100px] leading-[91px] text-white'
               />
             </motion.div>
             <div className='flex gap-[50px]'>
@@ -73,7 +74,7 @@ const Footer = () => {
             </div>
           </div>
           <motion.div
-            className='w-full flex justify-between items-center border-t-[1px] border-[white] '
+            className='w-full flex flex-col sm:flex-row justify-between items-center border-t-[1px] border-[white] '
             initial={{ y: '100vw' }}
             animate={isInView ? { y: 0 } : {}}
             transition={{
@@ -96,9 +97,12 @@ const Footer = () => {
               </span>
             </div>
             <div>
-              <ul className='flex gap-[20px]'>
+              <ul className='flex flex-col sm:flex-row gap-[20px]'>
                 {navLinks.map((item) => (
-                  <li key={item.title}>
+                  <li
+                    key={item.title}
+                    className='flex justify-center sm:justify-start'
+                  >
                     <Link href={item.link}>
                       <span className='firaCode font-normal text-[25px] leading-[41px] text-white'>
                         {t(item.title)}

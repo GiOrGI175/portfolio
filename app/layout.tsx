@@ -15,7 +15,7 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider>
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
