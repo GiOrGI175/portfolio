@@ -18,7 +18,7 @@ const ProjectSection = () => {
     <div ref={headingRef} className='mt-[200px] w-full'>
       <div className=' max-w-[1280px] w-full flex flex-col '>
         <motion.div
-          className='px-[50px] py-[50px] mb-[50px] flex justify-center'
+          className='px-[50px]  sm:py-[50px] mb-[50px] flex justify-center'
           initial={{ x: '100vw', y: '-100vh' }}
           animate={isInView ? { x: 0, y: 0 } : undefined}
           transition={{
