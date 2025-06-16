@@ -147,8 +147,8 @@ export default function HomePage() {
       </motion.div>
       <AboutSection />
       <GithubSection />
-      {/*   <BlogSection />
-      <ContactMe /> */}
+      <BlogSection />
+      {/* <ContactMe /> */}
     </>
   );
 }
