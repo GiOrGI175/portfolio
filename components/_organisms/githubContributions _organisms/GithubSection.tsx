@@ -61,6 +61,7 @@ const GithubSection = () => {
             type: 'spring',
             stiffness: 120,
           }}
+          className='w-full flex justify-center'
         >
           <GithubContributions />
         </motion.div>

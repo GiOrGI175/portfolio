@@ -138,8 +138,8 @@ export default function HomePage() {
         {loader && <Loader />}
       </motion.div>
       <AboutSection />
-      {/* <GithubSection />
-      <BlogSection />
+      <GithubSection />
+      {/*   <BlogSection />
       <ContactMe /> */}
     </>
   );

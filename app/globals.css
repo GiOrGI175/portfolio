@@ -120,17 +120,14 @@ body {
   border-top-color: transparent;
 }
 
-/* Scrollbar სტილები */
 .scroll-custom {
-  /* Firefox-თვის */
   scrollbar-width: thin;
   scrollbar-color: #9911ff black;
 }
 
-/* Chrome, Edge, Safari */
 .scroll-custom::-webkit-scrollbar {
   width: 8px;
-  background: black; /* track background */
+  background: black;
 }
 
 .scroll-custom::-webkit-scrollbar-track {
@@ -139,10 +136,10 @@ body {
 
 .scroll-custom::-webkit-scrollbar-thumb {
   background-color: #9911ff;
-  border: 2px solid #9911ff; /* იგივე ფერის ბორდერი */
+  border: 2px solid #9911ff;
   border-radius: 4px;
 }
 
 .scroll-custom::-webkit-scrollbar-thumb:hover {
-  background-color: #b24cff; /* შედარებით ღია ვიოლეტი */
+  background-color: #b24cff;
 }
