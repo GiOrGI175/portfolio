@@ -3,7 +3,7 @@ import Footer from '@/components/_organisms/footer_organisms/Footer';
 import { getLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { Suspense } from 'react';
-import LoaderFallback from '@/components/_molecules/loader/LoaderFallBack';
+import LoaderFallback from '@/components/_molecules/loader/LoaderFallback';
 
 export default async function RootLayout({
   children,
