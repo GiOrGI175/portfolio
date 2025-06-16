@@ -37,9 +37,9 @@ const Blog = () => {
       }}
       transition={{ duration: 0.7 }}
     >
-      <div className='max-w-[1440px] w-full flex flex-col items-center py-[120px]'>
+      <div className='max-w-[1440px] w-full flex flex-col items-center sm:py-[120px]'>
         <motion.div
-          className='max-w-[1280px] w-full flex justify-start '
+          className='max-w-[1280px] w-full flex justify-center lg:justify-start '
           initial={{ x: '100vw', y: '-100vh' }}
           animate={isInViewEl ? { x: 0, y: 0 } : undefined}
           transition={{
@@ -51,12 +51,12 @@ const Blog = () => {
         >
           <LangTransitionH3
             title='Blog.myBlog'
-            className={`firaCode font-bold text-[90px] leading-[90px] relative top-[40px] pl-[20px] ${
+            className={`firaCode font-bold text-[50px] sm:text-[90px] leading-[90px] relative top-[40px] pl-[20px] ${
               darkMode ? 'text-white' : 'text-[#9911ff]'
             } duration-700  drop-shadow-2xl `}
           />
         </motion.div>
-        <div className='max-w-[1280px] w-full  columns-[500px]'>
+        <div className='max-w-[1280px] w-full  lg:columns-[484px] flex lg:block flex-col items-center '>
           {blogArr.map((item, index) => (
             <motion.div
               key={item.link}
