@@ -32,9 +32,13 @@ const ProjectsArry = () => {
           >
             <div
               className={`flex ${
-                (index + 1) % 2 === 0 ? 'flex-row-reverse' : 'flex-row'
+                (index + 1) % 2 === 0
+                  ? 'flex-col lg:flex-row-reverse'
+                  : 'flex-col  lg:flex-row'
               } items-center justify-between   ${
-                index + 1 === 3 ? 'mb-[0px] h-[500px]' : ' mb-[200px]'
+                index + 1 === 3
+                  ? 'mb-[0px] lg:h-[500px]'
+                  : 'mb-[100px] xl:mb-[200px]'
               }  `}
             >
               <Link
@@ -44,9 +48,9 @@ const ProjectsArry = () => {
                 className='flex flex-col items-center'
               >
                 <motion.span
-                  className={`firaCode text-[40px] leading-[50px] ${
+                  className={`firaCode text-center text-[33px] xl:text-[40px] leading-[50px] ${
                     darkMode ? 'text-white' : 'text-[#9911ff]'
-                  } duration-700 mb-[30px] ml-[50px]`}
+                  } duration-700 mb-[30px] lg:ml-[50px]`}
                   initial={{
                     x: (index + 1) % 2 === 0 ? '-100vw' : '100vw',
                   }}
@@ -98,7 +102,7 @@ const ProjectsArry = () => {
               </Link>
               <div className='h-full flex items-center pt-[50px]'>
                 <motion.div
-                  className='scroll-custom max-w-[500px] w-full h-[300px] px-[20px] overflow-y-auto'
+                  className='scroll-custom max-w-[700px] lg:min-w-[500px] lg:max-w-[500px] w-full h-[300px] px-[20px] overflow-y-auto'
                   initial={{ y: '100vw' }}
                   animate={isInViewEl ? { y: 0 } : undefined}
                   transition={{

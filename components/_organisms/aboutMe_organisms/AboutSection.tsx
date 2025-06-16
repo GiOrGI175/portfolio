@@ -28,7 +28,7 @@ const AboutSection = () => {
 
   return (
     <motion.div
-      className='hero_gradient w-full flex justify-center overflow-hidden'
+      className='hero_gradient w-full px-[20px] flex justify-center overflow-hidden'
       initial={{
         opacity: 0,
       }}
@@ -42,10 +42,10 @@ const AboutSection = () => {
       <div className='max-w-[1440px] w-full flex flex-col items-center'>
         <div
           ref={headingRef}
-          className=' max-w-[1280px] w-full pb-[70px] mt-[100px] flex flex-col '
+          className=' max-w-[1280px] w-full pb-[70px] mt-[50px] sm:mt-[100px] flex flex-col '
         >
           <motion.div
-            className='px-[50px] py-[50px] flex justify-center'
+            className='sm:px-[50px] sm:py-[50px] flex justify-center'
             initial={{ x: '100vw', y: '-100vh' }}
             animate={isInView ? { x: 0, y: 0 } : {}}
             transition={{
@@ -57,14 +57,14 @@ const AboutSection = () => {
           >
             <LangTransitionH2
               title='About.about'
-              className={`firaCode font-bold text-[90px] leading-[90px]  ${
+              className={`firaCode font-bold text-[50px] sm:text-[90px] leading-[90px]  ${
                 darkMode ? 'text-white' : 'text-[#9911ff]'
               } duration-700  drop-shadow-2xl`}
             />
           </motion.div>
-          <div className='relative  w-full h-[500px] z-20  flex justify-between'>
+          <div className='relative  w-full lg:h-[500px] z-20  flex flex-col lg:flex-row items-center justify-between my-[50px] sm:my-[0px]'>
             <motion.div
-              className='w-full flex  '
+              className='w-full flex  justify-center'
               initial={{ x: '-100vw', y: '-100vh' }}
               animate={isInView ? { x: 0, y: 0 } : {}}
               transition={{
@@ -74,18 +74,19 @@ const AboutSection = () => {
                 stiffness: 120,
               }}
             >
-              <div className='relative max-w-[500px] w-full h-[500px] rounded-full overflow-hidden z-20 drop-shadow-2xl'>
+              <div className='relative max-w-[500px] w-full h-[500px] rounded-full overflow-hidden z-20 drop-shadow-2xl flex justify-center items-center'>
                 <Image
                   src='/assets/img/about-me.webp'
                   width={500}
                   height={500}
+                  className='object-cover rounded-full'
                   alt='codeing image'
                 />
               </div>
               <div className='absolute top-[20px] left-[300px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
               <div className='absolute bottom-[20px] left-[0px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
             </motion.div>
-            <div className='relative max-w-[700px] w-full flex items-center'>
+            <div className='relative lg:min-w-[560px] max-w-[700px] w-full flex items-center mt-[50px] sm:mt-[0px]'>
               <AnimatePresence mode='wait'>
                 <motion.div
                   key={locale}

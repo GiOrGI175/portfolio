@@ -8,7 +8,10 @@
     "contact": "Contact",
 
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+
+    "MENU": "MENU",
+    "SOCIAL": "SOCIAL"
   },
   "Home": {
     "dev": "FULL-STACK WEB DEVELOPER",
@@ -92,6 +95,7 @@
   "GitHub": {
     "contributions": "GitHub contributions",
     "Total": "Total Contributions in",
+    "Contributions": "Total",
     "Year": "Year:",
     "less": "less",
     "more": "more"

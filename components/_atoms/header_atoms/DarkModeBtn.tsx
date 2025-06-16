@@ -3,6 +3,7 @@
 import * as motion from 'motion/react-client';
 import darkModeStore from '@/commons/hooks/darkModeStore';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
+import Image from 'next/image';
 
 export default function LayoutAnimation() {
   const darkMode = darkModeStore((state) => state.darkMode);
@@ -16,9 +17,19 @@ export default function LayoutAnimation() {
     <div className='flex justify-center items-center gap-[10px]'>
       <LangTranstionSpan
         title={'Header.light'}
-        className={`firaCode font-normal text-[16px] leading-[41px] ${
+        className={`hidden lg:flex firaCode font-normal text-[16px] leading-[41px] ${
           darkMode ? 'text-white' : 'text-[#9911ff]'
         } duration-700`}
+      />
+      <Image
+        src={
+          darkMode
+            ? '/assets/img/darkModeSun.png'
+            : '/assets/img/lightModeSun.png'
+        }
+        width={24}
+        height={24}
+        alt='darkmode'
       />
       <button
         className={`toggle-container ${
@@ -41,9 +52,19 @@ export default function LayoutAnimation() {
           }}
         />
       </button>
+      <Image
+        src={
+          darkMode
+            ? '/assets/img/darkModeMoon.png'
+            : '/assets/img/lightModeMoon.png'
+        }
+        width={24}
+        height={24}
+        alt='darkmode'
+      />
       <LangTranstionSpan
         title={'Header.dark'}
-        className={`firaCode font-normal text-[16px] leading-[41px] ${
+        className={`hidden lg:flex firaCode font-normal text-[16px] leading-[41px] ${
           darkMode ? 'text-white' : 'text-[#9911ff]'
         } duration-700`}
       />

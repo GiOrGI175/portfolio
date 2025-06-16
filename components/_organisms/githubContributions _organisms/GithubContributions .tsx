@@ -74,25 +74,44 @@ export default function GithubContributions() {
   const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
-    <div className='flex flex-col '>
-      <div className='flex justify-between'>
-        <div className='text-white text-lg font-semibold mb-4 firaCode'>
+    <div className='flex flex-col w-full items-start max-w-[1200px]'>
+      <div className='flex justify-between items-center w-full'>
+        <div
+          className={`hidden sm:flex text-lg font-semibold mb-4 firaCode ${
+            darkMode ? 'text-white' : 'text-[#9911ff]'
+          } duration-700`}
+        >
           <LangTranstionSpan
             title='GitHub.Total'
-            className='text-white text-lg font-semibold mb-4 firaCode'
-          />{' '}
+            className={` text-lg font-semibold mb-4 firaCode ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700`}
+          />
           {year}: {getTotalContributions()}
+        </div>
+        <div
+          className={`flex sm:hidden text-lg font-semibold mb-4 firaCode ${
+            darkMode ? 'text-white' : 'text-[#9911ff]'
+          } duration-700`}
+        >
+          <LangTranstionSpan
+            title='GitHub.Contributions'
+            className={` text-lg font-semibold mb-4 firaCode ${
+              darkMode ? 'text-white' : 'text-[#9911ff]'
+            } duration-700`}
+          />
+          : {getTotalContributions()}
         </div>
         <div
           className={`${
             darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'
-          } duration-700  px-[10px] w-fit mb-[20px] rounded-2xl self-end`}
+          } duration-700 px-[5px]  sm:px-[10px] w-fit mb-[20px] rounded-2xl self-end overflow-hidden flex items-center`}
         >
-          <label htmlFor='year' className='text-white firaCode'>
+          <label htmlFor='year' className='text-white firaCode '>
             <LangTranstionSpan
               title='GitHub.Year'
               className='text-white firaCode'
-            />{' '}
+            />
           </label>
           <select
             id='year'
@@ -108,40 +127,45 @@ export default function GithubContributions() {
         </div>
       </div>
       <div
-        className={`w-[1200px] h-[250px] p-[30px] border flex justify-between  items-center flex-col   ${
+        className={`max-w-[1200px] w-full h-[270px] p-[30px] border flex justify-between  items-center flex-col   ${
           darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'
         } duration-700  rounded-2xl `}
       >
-        <table id='contribution-table' className='!w-full !h-full'>
-          <thead>
-            <tr className='!w-[15px] !h-[15px] border border-[green]'>
-              {months.map((month, idx) => (
-                <th key={idx} className='month-label'>
-                  {month}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {[0, 1, 2, 3, 4, 5, 6].map((dayIndex) => (
-              <tr key={dayIndex}>
-                {weeks.map((week, weekIndex) => {
-                  const day = week.contributionDays[dayIndex];
-                  const count = day?.contributionCount || 0;
-                  return (
-                    <td
-                      key={weekIndex}
-                      className={`${getColorClass(
-                        count
-                      )} !w-[20px] !h-[20px] border `}
-                      title={`${count} contributions on ${day?.date}`}
-                    ></td>
-                  );
-                })}
+        <div className='scroll-custom w-full overflow-x-auto'>
+          <table
+            id='contribution-table'
+            className='!min-w-[1138px] !h-full whitespace-nowrap'
+          >
+            <thead>
+              <tr className='!w-[15px] !h-[15px] border border-[green]'>
+                {months.map((month, idx) => (
+                  <th key={idx} className='month-label'>
+                    {month}
+                  </th>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {[0, 1, 2, 3, 4, 5, 6].map((dayIndex) => (
+                <tr key={dayIndex}>
+                  {weeks.map((week, weekIndex) => {
+                    const day = week.contributionDays[dayIndex];
+                    const count = day?.contributionCount || 0;
+                    return (
+                      <td
+                        key={weekIndex}
+                        className={`${getColorClass(
+                          count
+                        )} !w-[20px] !h-[20px] border `}
+                        title={`${count} contributions on ${day?.date}`}
+                      ></td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         <div
           className={`${
             darkMode ? 'bg-[#0e0910]' : 'bg-[#9911ff]'

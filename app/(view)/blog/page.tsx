@@ -28,7 +28,7 @@ export default function page() {
       transition={{ duration: 0.7 }}
     >
       <Header />
-      <div className='max-w-[1440px] w-full flex flex-col items-center'>
+      <div className='max-w-[1440px] px-[20px] w-full flex flex-col items-center'>
         <Blog />
       </div>
     </motion.div>

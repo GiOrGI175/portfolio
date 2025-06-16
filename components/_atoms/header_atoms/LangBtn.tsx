@@ -35,7 +35,7 @@ const LangBtn = () => {
       `}
     >
       {isPending ? (
-        <div className='h-6 w-6 animate-spin rounded-full border-2 border-purple-500 border-b-transparent' />
+        <div className='h-[20px] w-[20px] animate-spin rounded-full border-2 border-purple-500 border-b-transparent' />
       ) : (
         <span className='text-sm font-medium'>
           {locale === 'en' ? 'GEO' : 'EN'}

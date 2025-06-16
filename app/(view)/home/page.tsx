@@ -1,7 +1,6 @@
 'use client';
 
 import darkModeStore from '@/commons/hooks/darkModeStore';
-import { BlurIn } from '@/components/_atoms/home_atoms/blur_text';
 import StaggeredFade from '@/components/_atoms/home_atoms/StaggeredFade';
 import Loader from '@/components/_molecules/loader/Loader';
 import AboutSection from '@/components/_organisms/aboutMe_organisms/AboutSection';
@@ -15,6 +14,8 @@ import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
+import Image from 'next/image';
+import BlurIn from '@/components/_atoms/home_atoms/blur_text';
 
 export default function HomePage() {
   const [loader, setLoader] = useState(true);
@@ -53,9 +54,9 @@ export default function HomePage() {
         transition={{ duration: 0.7 }}
       >
         <Header />
-        <div className='max-w-[1440px] w-full flex flex-col items-center'>
+        <div className='max-w-[1440px] w-full flex flex-col items-center  px-[20px] relative z-30'>
           <motion.div
-            className='max-w-[1280px] h-[600px] w-full mb-[220px] flex items-center border-[1px] rounded-2xl border-[#9911ff]'
+            className='max-w-[1280px] lg:h-[600px] w-full py-[30px] lg:py-[0px] px-[12px] sm:px-[50px] mb-[100px] lg:mb-[220px] flex flex-col lg:flex-row items-center justify-between border-[1px] rounded-2xl border-[#9911ff] '
             initial={{
               border: '1px solid transparent',
               boxShadow: '0 0 0px #00000000',
@@ -71,25 +72,25 @@ export default function HomePage() {
               boxShadow: { delay: 2, duration: 1.5, ease: 'easeInOut' },
             }}
           >
-            <div className='flex flex-col gap-[20px] pl-[50px]'>
+            <div className='flex flex-col items-center lg:items-start gap-[20px] '>
               <LangTranstionP
                 title='Home.dev'
                 className={`firaCode font-normal text-[20px] leading-[41px] ${
                   darkMode ? 'text-[#ffffff80]' : 'text-[#9911fff2]'
                 } duration-700  opacity-50 `}
               />
-
-              <BlurIn>
-                <LangTranstionSpan
-                  title={'Home.myName'}
-                  className={`max-w-[200px] firaCode font-bold text-[90px] leading-[130px] ${
-                    darkMode ? 'text-white' : 'text-[#9911ff]'
+              <BlurIn
+                title={'Home.myName'}
+                className={`w-full lg:max-w-[200px] firaCode font-bold text-[50px] sm:text-[90px] leading-[60px] sm:leading-[130px] mb-[10px] text-center ${
+                  darkMode ? 'text-white' : 'text-[#9911ff]'
+                } duration-700`}
+              />
+              <div className='hidden sm:flex items-center h-[130px] max-w-[450px] w-full'>
+                <div
+                  className={`w-[5px] h-full  ${
+                    darkMode ? 'bg-white' : 'bg-[#9911ff]'
                   } duration-700`}
                 />
-              </BlurIn>
-
-              <div className='flex items-center h-[130px] max-w-[450px] w-full'>
-                <div className='w-[5px] h-full bg-white' />
                 <AnimatePresence mode='wait'>
                   <motion.div
                     key={locale}
@@ -102,6 +103,43 @@ export default function HomePage() {
                   </motion.div>
                 </AnimatePresence>
               </div>
+            </div>
+            <motion.div
+              layout
+              transition={{
+                type: 'spring',
+                duration: 0.2,
+                bounce: 0.2,
+              }}
+            >
+              <Image
+                src={
+                  darkMode
+                    ? '/assets/img/me_avatar.png'
+                    : '/assets/img/me_avatar_light.png'
+                }
+                width={500}
+                height={500}
+                alt='avatar'
+              />
+            </motion.div>
+            <div className='flex sm:hidden items-center h-[130px] max-w-[450px] w-full mt-[24px]'>
+              <div
+                className={`w-[5px] h-full ${
+                  darkMode ? 'bg-white' : 'bg-[#9911ff]'
+                } duration-700`}
+              />
+              <AnimatePresence mode='wait'>
+                <motion.div
+                  key={locale}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <StaggeredFade text={t('Home.workExperence')} />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </motion.div>
         </div>
