@@ -32,7 +32,7 @@ const ContactMe = () => {
   return (
     <motion.div
       id='contact'
-      className='hero_gradient w-full flex justify-center'
+      className='hero_gradient w-full flex justify-center '
       initial={{
         opacity: 0,
       }}
@@ -45,7 +45,7 @@ const ContactMe = () => {
     >
       <motion.div
         ref={headingRef}
-        className=' w-full flex justify-center overflow-hidden  bg-cover bg-center bg-no-repeat'
+        className=' w-full px-[20px] flex justify-center overflow-hidden  bg-cover bg-center bg-no-repeat '
         style={{ backgroundImage: "url('/assets/img/9307194.png')" }}
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
@@ -66,7 +66,7 @@ const ContactMe = () => {
             >
               <LangTransitionH2
                 title='Contact.contactMe'
-                className={`firaCode font-bold text-[90px] leading-[90px] ${
+                className={`firaCode font-bold text-center text-[50px] sm:text-[90px] leading-[90px] ${
                   darkMode ? 'text-white' : 'text-[#9911ff]'
                 } drop-shadow-2xl`}
               />

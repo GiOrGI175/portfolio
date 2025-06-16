@@ -148,7 +148,7 @@ export default function HomePage() {
       <AboutSection />
       <GithubSection />
       <BlogSection />
-      {/* <ContactMe /> */}
+      <ContactMe />
     </>
   );
 }
