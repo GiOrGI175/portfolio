@@ -33,7 +33,7 @@ export default function HamburgerButton() {
   return (
     <button
       onClick={toggleSwitch}
-      className='relative w-8 h-8 flex justify-center items-center z-50'
+      className='relative w-8 h-8 flex justify-center items-center z-40'
     >
       <motion.span
         className={`absolute w-6 h-0.5 ${

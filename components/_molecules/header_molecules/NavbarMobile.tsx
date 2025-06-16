@@ -29,7 +29,7 @@ export default function NavbarMobile() {
     <AnimatePresence initial={false}>
       {isOpen && (
         <motion.div
-          className='back_drop absolute top-[-21px] right-0 max-w-[500px] w-full h-[100dvh] px-[60px] pb-[20px] z-40 flex flex-col gap-[50px]  justify-start pt-24 overflow-hidden '
+          className='back_drop absolute top-[-21px] right-0 max-w-[500px] w-full h-[100dvh] px-[60px] pb-[20px] z-30 flex flex-col gap-[50px]  justify-start pt-24 overflow-hidden '
           initial={{
             x: '700px',
             borderTopLeftRadius: '90%',

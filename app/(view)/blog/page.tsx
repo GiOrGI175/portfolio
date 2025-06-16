@@ -4,10 +4,12 @@ import darkModeStore from '@/commons/hooks/darkModeStore';
 import Header from '@/components/_organisms/header_organisms/Header';
 import Blog from '@/components/_organisms/blog_organisms/Blog';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import overLayStore from '@/commons/hooks/overLayStore';
 
 export default function page() {
   const darkMode = darkModeStore((state) => state.darkMode);
+  const overLay = overLayStore((state) => state.overLay);
 
   const bgColor = darkMode ? '#130f40' : '#f0eaff';
   const bgImage = darkMode
@@ -31,6 +33,17 @@ export default function page() {
       <div className='max-w-[1440px] px-[20px] w-full flex flex-col items-center'>
         <Blog />
       </div>
+      <AnimatePresence>
+        {overLay && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className='fixed top-0 left-0 w-screen h-screen z-20 backdrop-blur-[4px] bg-black/50'
+          />
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
