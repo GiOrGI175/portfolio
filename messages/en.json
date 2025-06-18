@@ -129,7 +129,8 @@
     "Message": "Message *",
     "MessageHolder": "Enter your Message",
 
-    "submit": "submit"
+    "submit": "submit",
+    "Submitting": "Submitting..."
   },
   "Footer": {
     "CheckMe": "Check me out",

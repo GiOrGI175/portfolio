@@ -10,12 +10,12 @@ import GithubSection from '@/components/_organisms/githubContributions _organism
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/_organisms/header_organisms/Header';
 import LangTranstionP from '@/lib/LangTransitionP';
-import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import BlurIn from '@/components/_atoms/home_atoms/blur_text';
+import overLayStore from '@/commons/hooks/overLayStore';
 
 export default function HomePage() {
   const [loader, setLoader] = useState(true);
@@ -29,6 +29,8 @@ export default function HomePage() {
   }, []);
 
   const darkMode = darkModeStore((state) => state.darkMode);
+
+  const overLay = overLayStore((state) => state.overLay);
 
   const bgColor = darkMode ? '#130f40' : '#f0eaff';
   const bgImage = darkMode
@@ -54,7 +56,7 @@ export default function HomePage() {
         transition={{ duration: 0.7 }}
       >
         <Header />
-        <div className='max-w-[1440px] w-full flex flex-col items-center  px-[20px] relative z-30'>
+        <div className='max-w-[1440px] w-full flex flex-col items-center  px-[20px] relative z-10'>
           <motion.div
             className='max-w-[1280px] lg:h-[600px] w-full py-[30px] lg:py-[0px] px-[12px] sm:px-[50px] mb-[100px] lg:mb-[220px] flex flex-col lg:flex-row items-center justify-between border-[1px] rounded-2xl border-[#9911ff] '
             initial={{
@@ -149,6 +151,17 @@ export default function HomePage() {
       <GithubSection />
       <BlogSection />
       <ContactMe />
+      <AnimatePresence>
+        {overLay && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className='fixed top-0 left-0 w-screen h-screen z-20 backdrop-blur-[4px] bg-black/50'
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

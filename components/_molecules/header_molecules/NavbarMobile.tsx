@@ -8,15 +8,16 @@ import navBarStore from '@/commons/hooks/navBarStore';
 import { navLinks, soclialLinks } from '@/commons/services/Links';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import Image from 'next/image';
-import { li } from 'motion/react-client';
 import LayoutAnimation from '@/components/_atoms/header_atoms/DarkModeBtn';
 import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
+import overLayStore from '@/commons/hooks/overLayStore';
 
 export default function NavbarMobile() {
   const pathName = usePathname() || '';
   const darkMode = darkModeStore((s) => s.darkMode);
   const isOpen = navBarStore((s) => s.isOpen);
   const setIsOpen = navBarStore((state) => state.setIsOpen);
+  const setOverLay = overLayStore((state) => state.setOverLay);
 
   const bgColor = darkMode ? '#130f40' : '#f0eaff';
   const bgImage = darkMode
@@ -27,7 +28,7 @@ export default function NavbarMobile() {
     <AnimatePresence initial={false}>
       {isOpen && (
         <motion.div
-          className='back_drop absolute top-[-21px] right-0 max-w-[500px] w-full h-[100dvh] px-[60px] pb-[20px] z-40 flex flex-col gap-[50px]  justify-start pt-24 overflow-hidden '
+          className='back_drop absolute top-[-21px] right-0 max-w-[500px] w-full h-[100dvh] px-[60px] pb-[20px] z-30 flex flex-col gap-[50px]  justify-start pt-24 overflow-hidden '
           initial={{
             x: '700px',
             borderTopLeftRadius: '90%',
@@ -53,7 +54,7 @@ export default function NavbarMobile() {
             borderBottomLeftRadius: { duration: 0.8, ease: 'easeInOut' },
           }}
         >
-          <div className=' flex gap-[10px] absolute top-[40px] left-[35]'>
+          <div className=' flex md:hidden gap-[10px] absolute top-[40px] left-[35]'>
             <LayoutAnimation />
             <LangBtn />
           </div>
@@ -72,7 +73,10 @@ export default function NavbarMobile() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setOverLay(false);
+                  }}
                   className={`border-b-2 w-fit ${
                     isActive ? 'border-[#9911ff]' : 'border-transparent'
                   } duration-300`}

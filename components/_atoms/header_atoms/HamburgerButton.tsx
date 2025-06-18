@@ -2,15 +2,19 @@
 
 import darkModeStore from '@/commons/hooks/darkModeStore';
 import navBarStore from '@/commons/hooks/navBarStore';
+import overLayStore from '@/commons/hooks/overLayStore';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
 export default function HamburgerButton() {
   const isOpen = navBarStore((state) => state.isOpen);
   const setIsOpen = navBarStore((state) => state.setIsOpen);
 
+  const overLay = overLayStore((state) => state.overLay);
+  const setOverLay = overLayStore((state) => state.setOverLay);
+
   const toggleSwitch = () => {
     setIsOpen(!isOpen);
+    setOverLay(!overLay);
   };
 
   const topVariant = {
@@ -28,7 +32,7 @@ export default function HamburgerButton() {
   return (
     <button
       onClick={toggleSwitch}
-      className='relative w-8 h-8 flex justify-center items-center z-50'
+      className='relative w-8 h-8 flex justify-center items-center z-40'
     >
       <motion.span
         className={`absolute w-6 h-0.5 ${
