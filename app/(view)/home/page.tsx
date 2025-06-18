@@ -10,7 +10,6 @@ import GithubSection from '@/components/_organisms/githubContributions _organism
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/_organisms/header_organisms/Header';
 import LangTranstionP from '@/lib/LangTransitionP';
-import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';

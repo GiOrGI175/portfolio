@@ -1,5 +1,4 @@
 'use client';
-import darkModeStore from '@/commons/hooks/darkModeStore';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import { motion, useInView } from 'framer-motion';
 import * as React from 'react';
@@ -12,8 +11,6 @@ type BlurInProps = {
 const BlurIn: React.FC<BlurInProps> = ({ title, className }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  const darkMode = darkModeStore((state) => state.darkMode);
 
   return (
     <motion.div

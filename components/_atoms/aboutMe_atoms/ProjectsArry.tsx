@@ -10,25 +10,34 @@ import LangTranstionP from '@/lib/LangTransitionP';
 
 const ProjectsArry = () => {
   const darkMode = darkModeStore((state) => state.darkMode);
-
   const t = useTranslations();
-
   const locale = useLocale();
+
+  // Create individual refs for each project
+  const ref1 = useRef<HTMLDivElement>(null);
+  const ref2 = useRef<HTMLDivElement>(null);
+  const ref3 = useRef<HTMLDivElement>(null);
+
+  // Store refs in an array
+  const elementRefs = [ref1, ref2, ref3];
+
+  // Get inView states for each ref
+  const inView1 = useInView(ref1, { once: false, margin: '-100px' });
+  const inView2 = useInView(ref2, { once: false, margin: '-100px' });
+  const inView3 = useInView(ref3, { once: false, margin: '-100px' });
+
+  const inViewStates = [inView1, inView2, inView3];
 
   return (
     <>
       {projects.slice(0, 3).map((item, index) => {
-        const ElementRef = useRef(null);
-        const isInViewEl = useInView(ElementRef, {
-          once: false,
-          margin: '-100px',
-        });
+        const isInViewEl = inViewStates[index];
 
         return (
           <div
             key={item.link}
             className='flex flex-col overflow-hidden'
-            ref={ElementRef}
+            ref={elementRefs[index]}
           >
             <div
               className={`flex ${

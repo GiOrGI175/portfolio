@@ -1,34 +1,21 @@
 'use client';
 
 import { navLinks } from '@/commons/services/Links';
-import ContactMeBtn from '@/components/_atoms/header_atoms/ContactMeBtn';
 import LayoutAnimation from '@/components/_atoms/header_atoms/DarkModeBtn';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import darkModeStore from '@/commons/hooks/darkModeStore';
 import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
-import { useTranslations } from 'next-intl';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import LangTransitionH1 from '@/lib/LangTransitionH1';
-import { useRef } from 'react';
 import HamburgerButton from '@/components/_atoms/header_atoms/HamburgerButton';
 import NavbarMobile from '@/components/_molecules/header_molecules/NavbarMobile';
-import overLayStore from '@/commons/hooks/overLayStore';
 
 const Header = () => {
   const pathName = usePathname() || '';
 
   const darkMode = darkModeStore((state) => state.darkMode);
-  const overLay = overLayStore((state) => state.overLay);
-
-  const t = useTranslations();
-
-  const contactRef = useRef<HTMLElement>(null);
-
-  const scrollToContact = () => {
-    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <>

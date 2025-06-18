@@ -9,13 +9,10 @@ import { itemVariants } from '@/components/_atoms/aboutMe_atoms/FrontEndStuck';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import LangTransitionH1 from '@/lib/LangTransitionH1';
 import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
 
 const Footer = () => {
   const headingRef = useRef(null);
   const isInView = useInView(headingRef, { once: false, margin: '-100px' });
-
-  const locale = useLocale();
 
   const t = useTranslations();
 

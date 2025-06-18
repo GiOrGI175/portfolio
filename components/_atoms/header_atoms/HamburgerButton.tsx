@@ -4,7 +4,6 @@ import darkModeStore from '@/commons/hooks/darkModeStore';
 import navBarStore from '@/commons/hooks/navBarStore';
 import overLayStore from '@/commons/hooks/overLayStore';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
 export default function HamburgerButton() {
   const isOpen = navBarStore((state) => state.isOpen);

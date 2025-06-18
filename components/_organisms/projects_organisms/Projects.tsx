@@ -1,13 +1,10 @@
 'use client';
 
 import { projects } from '@/commons/services/projects';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import ProjectItem from '@/components/_molecules/projects_molecules/ProjectItem';
 import darkModeStore from '@/commons/hooks/darkModeStore';
-import { useTranslations } from 'next-intl';
 import LangTransitionH2 from '@/lib/LangTransitionH2';
 
 const Projects = () => {
@@ -15,8 +12,6 @@ const Projects = () => {
   const isInView = useInView(headingRef, { once: false, margin: '-100px' });
 
   const darkMode = darkModeStore((state) => state.darkMode);
-
-  const t = useTranslations();
 
   return (
     <div className=' max-w-[1280px] w-full sm:py-[70px] px-[20px] flex flex-col '>

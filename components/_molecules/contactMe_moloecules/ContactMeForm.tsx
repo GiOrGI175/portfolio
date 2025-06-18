@@ -3,15 +3,12 @@
 import darkModeStore from '@/commons/hooks/darkModeStore';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
 import { useState } from 'react';
 
 const ContactMeForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const darkMode = darkModeStore((state) => state.darkMode);
-
-  const locale = useLocale();
 
   const t = useTranslations();
 
@@ -40,7 +37,7 @@ const ContactMeForm = () => {
           const isIOS =
             typeof window !== 'undefined' &&
             /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-            !(window as any).MSStream;
+            !(window as Window & { MSStream?: unknown }).MSStream;
 
           if (isIOS) {
             window.location.href = mailtoLink;

@@ -4,13 +4,27 @@ import { useRef } from 'react';
 import { useInView, motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { projects } from '@/commons/services/projects';
 import darkModeStore from '@/commons/hooks/darkModeStore';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import LangTranstionP from '@/lib/LangTransitionP';
 
-const ProjectItem = ({ item, index }: { item: any; index: number }) => {
+interface ProjectItemProps {
+  link: string;
+  name: string;
+  mount: string;
+  year: string;
+  img: string;
+  info: string;
+}
+
+const ProjectItem = ({
+  item,
+  index,
+}: {
+  item: ProjectItemProps;
+  index: number;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: '-100px' });
 

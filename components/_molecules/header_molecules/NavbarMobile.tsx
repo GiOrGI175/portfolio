@@ -8,7 +8,6 @@ import navBarStore from '@/commons/hooks/navBarStore';
 import { navLinks, soclialLinks } from '@/commons/services/Links';
 import LangTranstionSpan from '@/lib/LangTranstionSpan';
 import Image from 'next/image';
-import { li } from 'motion/react-client';
 import LayoutAnimation from '@/components/_atoms/header_atoms/DarkModeBtn';
 import LangBtn from '@/components/_atoms/header_atoms/LangBtn';
 import overLayStore from '@/commons/hooks/overLayStore';

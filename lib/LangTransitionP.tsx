@@ -1,8 +1,6 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 
