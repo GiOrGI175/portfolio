@@ -19,11 +19,14 @@ const Header = () => {
 
   return (
     <>
+      <link rel='preload' href='/(view)/projects/page' as='script' />
+      <link rel='preload' href='/(view)/blog/page' as='script' />
+      <link rel='preload' href='/(view)/home/page' as='script' />
+
       <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 2 }}
         className=' w-full p-[20px] flex justify-center items-center backdrop-blur-[20%] relative z-30'
       >
         <motion.div
