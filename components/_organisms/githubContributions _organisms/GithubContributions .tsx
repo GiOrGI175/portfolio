@@ -22,7 +22,7 @@ export default function GithubContributions() {
   useEffect(() => {
     const fetchContributions = async () => {
       try {
-        const res = await fetch(`../../../pages/api/github?year=${year}`);
+        const res = await fetch(`/api/github?year=${year}`);
         const data = await res.json();
         if (data?.weeks) {
           setWeeks(data.weeks);
