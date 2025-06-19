@@ -53,21 +53,27 @@ const Footer = () => {
             </motion.div>
             <div className='flex gap-[50px]'>
               {soclialLinks.map((item, index) => (
-                <motion.div
+                <Link
                   key={item.img}
-                  className='w-[60px] h-[60px] rounded-full flex justify-center items-center bg-[white] cursor-pointer'
-                  custom={index}
-                  variants={itemVariants}
-                  initial='hidden'
-                  animate={isInView ? 'visible' : 'hidden'}
+                  href={item.link}
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
-                  <Image
-                    src={item.img}
-                    width={40}
-                    height={40}
-                    alt='social media links'
-                  />
-                </motion.div>
+                  <motion.div
+                    className='w-[60px] h-[60px] rounded-full flex justify-center items-center bg-[white] cursor-pointer'
+                    custom={index}
+                    variants={itemVariants}
+                    initial='hidden'
+                    animate={isInView ? 'visible' : 'hidden'}
+                  >
+                    <Image
+                      src={item.img}
+                      width={40}
+                      height={40}
+                      alt='social media links'
+                    />
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </div>

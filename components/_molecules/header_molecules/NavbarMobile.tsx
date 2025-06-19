@@ -101,27 +101,34 @@ export default function NavbarMobile() {
               } duration-500`}
             />
             {soclialLinks.map((item, index) => (
-              <li key={item.img} className='flex items-center'>
-                <motion.div
-                  className='w-[40px] h-[40px] rounded-full flex justify-center items-center bg-[white] cursor-pointer'
-                  custom={index}
-                  initial='hidden'
-                >
-                  <Image
-                    src={item.img}
-                    width={25}
-                    height={25}
-                    alt='social media links'
-                  />
-                </motion.div>
-                <span
-                  className={`firaCode ml-[20px] text-2xl leading-snug ${
-                    darkMode ? 'text-white' : 'text-[#9911ff]'
-                  } duration-500`}
-                >
-                  {item.title}
-                </span>
-              </li>
+              <Link
+                key={item.img}
+                href={item.link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <li className='flex items-center'>
+                  <motion.div
+                    className='w-[40px] h-[40px] rounded-full flex justify-center items-center bg-[white] cursor-pointer'
+                    custom={index}
+                    initial='hidden'
+                  >
+                    <Image
+                      src={item.img}
+                      width={25}
+                      height={25}
+                      alt='social media links'
+                    />
+                  </motion.div>
+                  <span
+                    className={`firaCode ml-[20px] text-2xl leading-snug ${
+                      darkMode ? 'text-white' : 'text-[#9911ff]'
+                    } duration-500`}
+                  >
+                    {item.title}
+                  </span>
+                </li>
+              </Link>
             ))}
           </ul>
         </motion.div>

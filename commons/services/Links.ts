@@ -32,7 +32,7 @@ export const soclialLinks = [
     title: 'Github',
   },
   {
-    link: 'discordapp.com/users/672766620007006208',
+    link: 'https://discordapp.com/users/672766620007006208',
     img: '/assets/svg/icons8-discord.svg',
     title: 'Discord',
   },
