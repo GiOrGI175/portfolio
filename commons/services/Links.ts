@@ -21,18 +21,18 @@ export const navLinks = [
 
 export const soclialLinks = [
   {
-    link: '',
+    link: 'https://www.linkedin.com/in/giorgi-nozadze-a1515334a/',
     img: '/assets/svg/icons8-linkedin.svg',
     title: 'Linked-in',
   },
 
   {
-    link: '',
+    link: 'https://github.com/GiOrGI175',
     img: '/assets/svg/icons8-github.svg',
     title: 'Github',
   },
   {
-    link: '',
+    link: 'discordapp.com/users/672766620007006208',
     img: '/assets/svg/icons8-discord.svg',
     title: 'Discord',
   },

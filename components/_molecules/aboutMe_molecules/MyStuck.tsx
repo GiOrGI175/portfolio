@@ -19,8 +19,8 @@ const MyStuck = () => {
     <div ref={headingRef} className='mt-[100px] w-full'>
       <motion.div
         className='px-[50px] py-[50px] mb-[50px] flex justify-center'
-        initial={{ x: '100vw', y: '-100vh' }}
-        animate={isInView ? { x: 0, y: 0 } : undefined}
+        initial={{ x: '100vw', y: '-100vh', opacity: 0 }}
+        animate={isInView ? { x: 0, y: 0, opacity: 1 } : undefined}
         transition={{
           duration: 0.8,
           ease: 'easeOut',

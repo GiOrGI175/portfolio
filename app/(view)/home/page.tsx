@@ -15,7 +15,7 @@ import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import BlurIn from '@/components/_atoms/home_atoms/blur_text';
-import overLayStore from '@/commons/hooks/overLayStore';
+import OverLay from '@/components/_atoms/header_atoms/OverLay';
 
 export default function HomePage() {
   const [loader, setLoader] = useState(true);
@@ -29,8 +29,6 @@ export default function HomePage() {
   }, []);
 
   const darkMode = darkModeStore((state) => state.darkMode);
-
-  const overLay = overLayStore((state) => state.overLay);
 
   const bgColor = darkMode ? '#130f40' : '#f0eaff';
   const bgImage = darkMode
@@ -151,17 +149,7 @@ export default function HomePage() {
       <GithubSection />
       <BlogSection />
       <ContactMe />
-      <AnimatePresence>
-        {overLay && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className='fixed top-0 left-0 w-screen h-screen z-20 backdrop-blur-[4px] bg-black/50'
-          />
-        )}
-      </AnimatePresence>
+      <OverLay />
     </>
   );
 }
