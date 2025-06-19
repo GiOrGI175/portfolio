@@ -46,8 +46,8 @@ const AboutSection = () => {
         >
           <motion.div
             className='sm:px-[50px] sm:py-[50px] flex justify-center'
-            initial={{ x: '100vw', y: '-100vh' }}
-            animate={isInView ? { x: 0, y: 0 } : {}}
+            initial={{ x: '100vw', y: '-100vh', opacity: 0 }}
+            animate={isInView ? { x: 0, y: 0, opacity: 1 } : {}}
             transition={{
               duration: 0.8,
               ease: 'easeOut',
@@ -65,8 +65,8 @@ const AboutSection = () => {
           <div className='relative  w-full lg:h-[500px] z-20  flex flex-col lg:flex-row items-center justify-between my-[50px] sm:my-[0px]'>
             <motion.div
               className='w-full flex  justify-center'
-              initial={{ x: '-100vw', y: '-100vh' }}
-              animate={isInView ? { x: 0, y: 0 } : {}}
+              initial={{ x: '-100vw', y: '-100vh', opacity: 0 }}
+              animate={isInView ? { x: 0, y: 0, opacity: 1 } : {}}
               transition={{
                 duration: 0.8,
                 ease: 'easeOut',
@@ -83,10 +83,10 @@ const AboutSection = () => {
                   alt='codeing image'
                 />
               </div>
-              <div className='absolute top-[20px] left-[300px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
-              <div className='absolute bottom-[20px] left-[0px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
+              <div className='hidden sm:flex absolute top-[20px] left-[300px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
+              <div className='hidden sm:flex absolute bottom-[20px] left-[0px] z-10 w-[200px] h-[200px] rounded-full bg-[#340a83] blur-[80px]' />
             </motion.div>
-            <div className='relative lg:min-w-[560px] max-w-[700px] w-full flex items-center mt-[50px] sm:mt-[0px]'>
+            <div className='relative lg:min-w-[560px] max-w-[700px] w-full flex items-center mt-[50px] sm:mt-[0px]  overflow-hidden sm:overflow-visible'>
               <AnimatePresence mode='wait'>
                 <motion.div
                   key={locale}
@@ -94,12 +94,13 @@ const AboutSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
+                  className='relative z-20'
                 >
                   <StaggeredFade text={t('About.aboutME')} />
                 </motion.div>
               </AnimatePresence>
 
-              <div className='absolute top-[0px] left-[450px] z-10 w-[300px] h-[600px] rounded-l-full bg-[#340a83] blur-[200px]' />
+              <div className='absolute bottom-[30%] sm:top-[0px] left-[50px] sm:left-[450px] z-10  w-[280px] sm:w-[300px] h-[280px] sm:h-[600px] rounded-full bg-[#340a83] blur-[100px] sm:blur-[200px] border-[1px] ' />
             </div>
           </div>
           <MyStuck />
