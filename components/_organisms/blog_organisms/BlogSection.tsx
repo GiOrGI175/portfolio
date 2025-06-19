@@ -17,12 +17,24 @@ const BlogSection = () => {
     ? 'linear-gradient(315deg, #0e0b2e 0%, #0e0910 74%)'
     : 'linear-gradient(315deg, #e0ddff 0%, #f9f8fc 74%)';
 
+  // Prepare refs and inView states statically
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+  const ref4 = useRef(null);
+
+  const inView1 = useInView(ref1, { once: false, margin: '-100px' });
+  const inView2 = useInView(ref2, { once: false, margin: '-100px' });
+  const inView3 = useInView(ref3, { once: false, margin: '-100px' });
+  const inView4 = useInView(ref4, { once: false, margin: '-100px' });
+
+  const refs = [ref1, ref2, ref3, ref4];
+  const inViews = [inView1, inView2, inView3, inView4];
+
   return (
     <motion.div
       className='hero_gradient w-full flex justify-center items-center overflow-hidden px-[20px]'
-      initial={{
-        opacity: 0,
-      }}
+      initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
         backgroundColor: bgColor,
@@ -52,11 +64,8 @@ const BlogSection = () => {
 
         <div className='max-w-[1280px] w-full flex flex-wrap justify-center '>
           {blogArr.slice(0, 4).map((item, index) => {
-            const elementRef = useRef(null);
-            const isInViewEl = useInView(elementRef, {
-              once: false,
-              margin: '-100px',
-            });
+            const isInViewEl = inViews[index];
+            const elementRef = refs[index];
 
             return (
               <motion.div
@@ -65,10 +74,7 @@ const BlogSection = () => {
                 className={`flex flex-col items-center max-w-[620px] rounded-2xl shadow-2xl overflow-hidden mb-[20px] ml-[5px] ${
                   index % 2 === 0 ? 'mt-20' : ''
                 }`}
-                initial={{
-                  opacity: 0,
-                  y: 40,
-                }}
+                initial={{ opacity: 0, y: 40 }}
                 animate={isInViewEl ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.8,
@@ -93,7 +99,6 @@ const BlogSection = () => {
                     alt='blog foto'
                     className='object-cover w-full h-[300px]'
                   />
-
                   <motion.div
                     className='py-[20px]'
                     initial={{ opacity: 0, y: 40 }}
